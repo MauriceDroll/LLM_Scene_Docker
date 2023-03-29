@@ -47,9 +47,11 @@ RUN rosdep update
 USER root
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt update && \
-	apt install -y ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-joint-trajectory-controller ros-$ROS_DISTRO-joint-state-broadcaster
+	apt install -y ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-joint-trajectory-controller ros-$ROS_DISTRO-joint-state-broadcaster ros-$ROS_DISTRO-controller-manager
 
 USER $USER
+RUN pip install scipy
+
 RUN mkdir -p /home/"$USER"/dependencies_ws/src
 
 RUN cd /home/"$USER"/dependencies_ws && git clone https://project_377_bot:glpat-DxteEaE_sAxRBiYGXhya@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/moveit2_wrapper.git
