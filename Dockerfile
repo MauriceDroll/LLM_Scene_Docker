@@ -41,19 +41,23 @@ RUN echo "export ROS_DOMAIN_ID=${DOMAIN_ID}" >> /etc/bash.bashrc
 USER $USER 
 RUN rosdep update
 
-#RUN mkdir -p /home/"$USER"/ws_moveit2/src
-#RUN cd /home/"$USER"/ws_moveit2/src && git clone https://github.com/ros-planning/moveit2.git -b foxy && vcs import < moveit2/moveit2.repos && rosdep install -r --from-paths . --ignore-src --rosdistro foxy -y
+##############################################################################
+##                                 General Dependencies                     ##
+##############################################################################
+USER root
+RUN DEBIAN_FRONTEND=noninteractive \
+	apt update && \
+	apt install -y ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-joint-trajectory-controller ros-$ROS_DISTRO-joint-state-broadcaster
 
-#RUN cd /home/"$USER"/ws_moveit2/src/geometric_shapes && git checkout foxy
-#RUN cd /home/$USER/ws_moveit2 && . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release
+USER $USER
+RUN mkdir -p /home/"$USER"/dependencies_ws/src
 
-#USER root
-#RUN DEBIAN_FRONTEND=noninteractive \
-#	apt update && \
-#	apt install -y ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-rqt*
-#RUN DEBIAN_FRONTEND=noninteractive \
-#	apt update && \
-#	apt install -y ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-joint-trajectory-controller ros-$ROS_DISTRO-joint-state-broadcaster
+RUN cd /home/"$USER"/dependencies_ws && git clone https://project_377_bot:glpat-DxteEaE_sAxRBiYGXhya@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/moveit2_wrapper.git
+RUN cd /home/"$USER"/dependencies_ws && git clone https://project_376_bot:glpat-4-ky62LJgxLzKMzJDzjU@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/iras_interfaces.git
+RUN cd /home/"$USER"/dependencies_ws && git clone https://project_436_bot:glpat-Px2zh52V7EPq1HzU9igi@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/ros_environment.git
+
+RUN . /opt/ros/$ROS_DISTRO/setup.sh && cd /home/"$USER"/dependencies_ws && colcon build
+RUN echo "source /home/$USER/dependencies_ws/install/setup.bash" >> /home/$USER/.bashrc
 ##############################################################################
 ##                                 User Dependecies                         ##
 ##############################################################################
