@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'test_ros_env = r2e_demos.test_ros_env:main'
         ],
     },
 )
