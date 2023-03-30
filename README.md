@@ -36,6 +36,9 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
    - Select the operating mode on the smartHMI
    - Turn the switch back to the original position
 4. Start program
+   - Potentially change the robot's velocity <font size="1"> (start symbol on top of hand symbol in the status bar at the 
+     top of the smartHMI) </font> with the slider in the smartHMI or the +/- keys on the smartPAD
+     <font size="1"> (penultimate buttons on the right side) </font>
    - Press start key on the left side of the smartPAD so that the robot interpreter status indicator turns green 
      <font size="1"> (the area around the "R" in the status bar at the top of the smartHMI) </font>
    - If T1 or T2 operating mode is selected instead of Aut, one of the enabling switches on the rear of the smartPAD has 
