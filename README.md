@@ -1,92 +1,102 @@
 # R2E Tutorial
-
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Setup Robot
+### Upload KRL Code
+1. Download KRL sources from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl)  
+   ![Download KRL](readme_imgs/krl_download.png)  
+2. Unpack downloaded sources
+3. Change IP in `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot 
+controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
+4. Create new project on KUKA smartPAD (teach pedant) with KUKA smartHMI (user interface)
+   - Open main menu <font size="1"> (key with small robot in the bottom right on smartPAD or top left in smartHMI) </font>
+   - _Konfiguration_ &rarr; _Benutzergruppe_ &rarr; _Administrator_ (pass: kuka)
+   - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
+   - Pin "Ready2Educate" project if not already pinned
+   - _Aktivieren_ &rarr; type in new project name, e.g. "ros2_driver" &rarr; confirm with _OK_
+   - Confirm _Wollen Sie die Aktivierung des Projektes "ros2_driver" zulassen?_ with _Ja_
+   - Confirm _Projektverwaltung_ panel _Wollen Sie fortfahren?_ with _Ja_  
+   - Wait until project is activated
+5. Insert downloaded KRL sources in new project  
+   - On computer open WorkVisual
+   - Navigate to "Dateien" tab in the left panel
+   - Copy in step 3 modified `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to `<KRC>/Config/User/Common/EthernetKRL`  
+     ![EKI Interface XMLs](readme_imgs/xmls.png)
+   - Create new folder `<KRC>/R1/Program/ros2_driver`
+   - Copy extracted `src/krl/kuka_eki_hw_interface.dat` and `src/krl/kuka_eki_hw_interface.src` to `<KRC>/R1/Program/ros2_driver`  
+     ![KRL Program Files](readme_imgs/krl_files.png)
+6. Install program
+   - Click _Installieren_ button  
+     ![Install Button](readme_imgs/install_button.png)
+   - _Weiter_ &rarr; _Weiter_ &rarr; switch to user group _Administrator_ on smartPAD <font size="1"> (see step 4) </font> &rarr; _Weiter_ &rarr; _Ja_ on smartPAD &rarr; 
+     _Ja_ on smartPAD &rarr; _Fertigstellen_
+### Start Hardware Interface on Robot
+1. On smartHMI navigate to  `R1/Program/ros2_driver`
+2. Select `kuka_eki_hw_interface.src` &rarr; _Anwählen_
+3. Select operating mode, e.g. Aut
+   - Turn the switch on the smartPAD clockwise <font size="1"> (keyswitch left to emergency stop button) </font>
+   - Select the operating mode on the smartHMI
+   - Turn the switch back to the original position
+4. Start program
+   - Press start key on the left side of the smartPAD so that the robot interpreter status indicator turns green 
+     <font size="1"> (the area around the "R" in the status bar at the top of the smartHMI) </font>
+   - If T1 or T2 operating mode is selected instead of Aut, one of the enabling switches on the rear of the smartPAD has 
+     to be held in center position to start the program and the start key has to be held constantly to continue running 
+     the program
+### Setup ROS2 environment
+1. Clone and build repository "R2E Tutorial"
+   - Open a terminal
+   - Clone repo  
+     ```
+     git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
+     ```
+   - Navigate to cloned repo  
+     ``` 
+     cd r2e_tutorial
+     ```
+   - Build container  
+     ```
+     ./start_docker.sh
+     ```
+     If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/rosws$`
+   - In the container, build workspace:
+     ```
+     colcon build
+     ```
+   - Source workspace
+     ```
+     source install/setup.bash
+     ```
+2. Start robot driver
+   - I not already in container, attach to running container
+     ```
+     docker exec -it r2e_cell /bin/bash
+     ```
+   - Source workspace
+     ```
+     source install/setup.bash
+     ```
+   - Launch robot driver with MoveIt2 wrapper
+     ```
+     ros2 launch kuka_kr3_cell_description cell.launch.py
+     ```
+     This will open up a simulated hardware with visualisation.  
+     To launch the real robot:
+     - Make sure that you are in our local network (Wi-Fi or LAN)
+     - Execute
+       ```
+       ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:="<robot-ip>"
+       ```
+3. Move robot
+   - Open up a new terminal and attach to running container
+     ```
+     docker exec -it r2e_cell /bin/bash
+     ```
+   - Source workspace
+     ```
+     source install/setup.bash
+     ```
+   - Run sample application
+     ```
+     ros2 run r2e_demos test_ros_env
+     ```
+     
+   
