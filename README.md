@@ -42,7 +42,7 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
    - Press start key on the left side of the smartPAD so that the robot interpreter status indicator turns green 
      <font size="1"> (the area around the "R" in the status bar at the top of the smartHMI) </font>
    - If T1 or T2 operating mode is selected instead of Aut, one of the enabling switches on the rear of the smartPAD has 
-     to be held in center position to start the program and the start key has to be held constantly to continue running 
+     to be held in center position and the start key has to be held constantly to continue running 
      the program
 ### Setup ROS2 environment
 1. Clone and build repository "R2E Tutorial"
