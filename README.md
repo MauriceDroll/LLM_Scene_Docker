@@ -46,7 +46,10 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
      the program
 ### Setup ROS2 environment
 1. Clone and build repository "R2E Tutorial"
-   - Open a terminal
+   - Open a terminal (Ctrl + Alt + T) and navigate to projects folder
+     ```
+     mkdir -p ~/projects && cd ~/projects
+     ```
    - Clone repo  
      ```
      git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
@@ -59,7 +62,7 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
      ```
      ./start_docker.sh
      ```
-     If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/rosws$`
+     If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/ros_ws$`
    - In the container, build workspace:
      ```
      colcon build
