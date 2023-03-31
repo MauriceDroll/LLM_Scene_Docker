@@ -6,12 +6,12 @@ from ros_environment.transform import Affine
 
 def main(args=None):
     rclpy.init(args=args)
-    robot = RobotClient(is_simulation=True)
+    robot = RobotClient(is_simulation=False)
     
     robot.home()
-    robot.ptp(Affine((0.0, -0.2, 1.2), (0.0, np.radians(180+45), 0.0)))
-    robot.ptp(Affine((-0.2, 0.3, 1.25), (0.0, 1.0, 0.0, 0.0)))
-    robot.lin(Affine((0.1, 0.0, 1.2), (0.0, 1.0, 0.0, 0.0)))
+    robot.ptp(Affine((-0.075, -0.171, 1.145), (0.000, 0.710, -0.000, 0.704)))
+    robot.ptp(Affine((0.043, 0.144, 1.270), (-0.000, -0.092, -0.000, 0.996)))
+    robot.lin(Affine((0.000, -0.052, 1.088), (-0.000, 0.704, 0.000, 0.711)))
     robot.open_gripper()
     robot.close_gripper()
 
