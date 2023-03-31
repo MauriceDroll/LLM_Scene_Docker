@@ -1,41 +1,60 @@
 # R2E Tutorial
-## Setup Robot
-### Upload KRL Code
-1. Download KRL sources from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl)  
+## First Time Setup - Robot
+1. Boot up the robot
+2. Boot up the Windows PC and log in with your RZ account
+3. Download KRL sources from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl) (with your RZ account) 
    ![Download KRL](readme_imgs/krl_download.png)  
-2. Unpack downloaded sources
-3. Change IP in `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot 
+4. Unpack downloaded sources
+5. Change IP in `src/kuka_eki/krl/EkiHwInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot 
 controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
-4. Create new project on KUKA smartPAD (teach pedant) with KUKA smartHMI (user interface)
+6. Create new project on KUKA smartPAD (teach pedant) with KUKA smartHMI (user interface)
    - Open main menu <font size="1"> (key with small robot in the bottom right on smartPAD or top left in smartHMI) </font>
    - _Konfiguration_ &rarr; _Benutzergruppe_ &rarr; _Administrator_ (pass: kuka)
    - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
-   - Pin "Ready2Educate" project if not already pinned
-   - _Aktivieren_ &rarr; type in new project name, e.g. "ros2_driver" &rarr; confirm with _OK_
+     - "Ready2Educate" is the active project:
+       - _aktuellen Zustand sichern_
+       - new project name: "ros2_driver" &rarr; _OK_
+       - select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
+       - - _Aktivieren_ &rarr; -> _Ja_
+     - "Ready2Educate" is not the active project:
+       - Pin "Ready2Educate"
+       - _Aktivieren_ &rarr; type in new project name, e.g. "ros2_driver" &rarr; confirm with _OK_
    - Confirm _Wollen Sie die Aktivierung des Projektes "ros2_driver" zulassen?_ with _Ja_
    - Confirm _Projektverwaltung_ panel _Wollen Sie fortfahren?_ with _Ja_  
    - Wait until project is activated
-5. Insert downloaded KRL sources in new project  
-   - On computer open WorkVisual
+7. Insert downloaded KRL sources in new project  
+   - On Windows PC open WorkVisual
+   - Load newly created project "ros2_driver" from robot cell
+     - _Datei_ &rarr; _Projekt öffnen_ &rarr; _Suchen_
+     - Select cell with the corresponding IP
+     - Select project "ros2_driver"
+     - _Öffnen_
    - Navigate to "Dateien" tab in the left panel
    - Copy in step 3 modified `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to `<KRC>/Config/User/Common/EthernetKRL`  
      ![EKI Interface XMLs](readme_imgs/xmls.png)
    - Create new folder `<KRC>/R1/Program/ros2_driver`
    - Copy extracted `src/krl/kuka_eki_hw_interface.dat` and `src/krl/kuka_eki_hw_interface.src` to `<KRC>/R1/Program/ros2_driver`  
      ![KRL Program Files](readme_imgs/krl_files.png)
-6. Install program
+8. Install program
+   - Switch to user group _Administrator_ on smartPAD <font size="1"> (see step 6) </font>
    - Click _Installieren_ button  
      ![Install Button](readme_imgs/install_button.png)
-   - _Weiter_ &rarr; _Weiter_ &rarr; switch to user group _Administrator_ on smartPAD <font size="1"> (see step 4) </font> &rarr; _Weiter_ &rarr; _Ja_ on smartPAD &rarr; 
+   - _Weiter_ &rarr; _Weiter_ &rarr; _Weiter_ &rarr; _Ja_ on smartPAD &rarr; 
      _Ja_ on smartPAD &rarr; _Fertigstellen_
-### Start Hardware Interface on Robot
-1. On smartHMI navigate to  `R1/Program/ros2_driver`
-2. Select `kuka_eki_hw_interface.src` &rarr; _Anwählen_
-3. Select operating mode, e.g. Aut
+## Start Hardware Interface on Robot
+1. Switch to user group _Administrator_ on smartHMI
+2. Activate project "ros2_driver" on smartHMI
+   - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
+   - Select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
+   - _Aktivieren_ &rarr; -> _Ja_
+   - Wait until project is activated
+3. On smartHMI navigate to  `R1/Program/ros2_driver`
+4. Select `kuka_eki_hw_interface.src` &rarr; _Anwählen_
+5. Select operating mode, e.g. Aut
    - Turn the switch on the smartPAD clockwise <font size="1"> (keyswitch left to emergency stop button) </font>
    - Select the operating mode on the smartHMI
    - Turn the switch back to the original position
-4. Start program
+6. Start program
    - Potentially change the robot's velocity <font size="1"> (start symbol on top of hand symbol in the status bar at the 
      top of the smartHMI) </font> with the slider in the smartHMI or the +/- keys on the smartPAD
      <font size="1"> (penultimate buttons on the right side) </font>
@@ -44,7 +63,7 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
    - If T1 or T2 operating mode is selected instead of Aut, one of the enabling switches on the rear of the smartPAD has 
      to be held in center position and the start key has to be held constantly to continue running 
      the program
-### Setup ROS2 environment
+## Setup ROS2 environment
 1. Clone and build repository "R2E Tutorial"
    - Open a terminal (Ctrl + Alt + T) and navigate to projects folder
      ```
@@ -91,7 +110,12 @@ controller's IP <font size="1"> (should be found on the robot cell somewhere) </
        ```
        ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:="<robot-ip>"
        ```
-3. Move robot
+4. Check out tutorial code
+   - open up VSCode (Windows key &rarr; type "code" &rarr; Enter)
+   - open folder "r2e_tutorial" in VSCode
+   - open file "r2e_tutorial/src/r2e_demos/src/test_ros_env.cpp"
+   - read and understand the code
+5. Move robot
    - Open up a new terminal and attach to running container
      ```
      docker exec -it r2e_cell /bin/bash
