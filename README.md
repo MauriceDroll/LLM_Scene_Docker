@@ -13,15 +13,14 @@
    controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
 6. Create new project on KUKA smartPAD (teach pedant) with KUKA smartHMI (user interface)
     - Open main menu <font size="1"> (key with small robot in the bottom right on smartPAD or top left in
-      smartHMI) </font>
+      smartHMI) </font> &rarr; _Öffnen_
     - _Konfiguration_ &rarr; _Benutzergruppe_ &rarr; _Administrator_ (pass: kuka)
     - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
         - "Ready2Educate" is the active project:
-            - _aktuellen Zustand sichern_
-            - new project name: "ros2_driver" &rarr; _OK_
+            - _Aktuellen Zustand sichern_
+            - Name: "ros2_driver" &rarr; _OK_
             - select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
-            -
-                - _Aktivieren_ &rarr; -> _Ja_
+            - _Aktivieren_
         - "Ready2Educate" is not the active project:
             - Pin "Ready2Educate"
             - _Aktivieren_ &rarr; type in new project name, e.g. "ros2_driver" &rarr; confirm with _OK_
@@ -53,7 +52,7 @@
 ## Start Hardware Interface on Robot
 
 1. Switch to user group _Administrator_ on smartHMI
-2. Activate project "ros2_driver" on smartHMI
+2. Activate project "ros2_driver" on smartHMI (if not already active)
     - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
     - Select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
     - _Aktivieren_ &rarr; -> _Ja_
@@ -89,7 +88,7 @@
       ```
       mkdir -p ~/projects && cd ~/projects
       ```
-    - Clone repo (if not already cloned)
+    - Clone repo (if not already cloned); log in with your RZ account
       ```
       git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
       ```
@@ -126,15 +125,21 @@
       This will open up a simulated hardware with visualisation.  
       To launch the real robot:
         - Make sure that you are in our local network (Wi-Fi or LAN)
-        - Execute
+        - Test your application in simulation first
+        - Make sure that the robot is not in a collision state when the application is executed on the real robot
+        - If everything is fine, execute
           ```
-          ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:="<robot-ip>"
+          ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
           ```
 4. Check out tutorial code
     - open up VSCode (Windows key &rarr; type "code" &rarr; Enter)
     - open folder "r2e_tutorial" in VSCode
-    - open file "r2e_tutorial/src/r2e_demos/src/test_ros_env.cpp"
+    - open file "src/r2e_demos/src/test_ros_env.cpp"
     - read and understand the code
+    - You might notice the `is_simulation` flag while creating the RobotClient object. Currently, this only controls whether
+      the real gripper is connected or not. Whether the movement of the robot is simulated or not, solely depends on 
+      the `use_fake_hardware` parameter at launch. If you want to test your application on the real robot, and also want to move the 
+      gripper, you need to set the `is_simulation` flag to false.
 5. Move robot
     - Open up a new terminal and attach to running container
       ```
@@ -145,8 +150,14 @@
       source install/setup.bash
       ```
     - Run sample application
+      - before running the application, check the robot's movement in the simulated environment and make sure, that the
+        robot is not in a collision state when the application is executed on the real robot 
       ```
       ros2 run r2e_demos test_ros_env
       ```
-     
+
+## Make your own ROS2 application
+
+Note, that this repository is a template repository. You can use it as a starting point for your own ROS2 applications
+but please do not push your changes to this repository.
    
