@@ -6,7 +6,7 @@ from ros_environment.transform import Affine
 
 def main(args=None):
     rclpy.init(args=args)
-    robot = RobotClient(is_simulation=False)
+    robot = RobotClient(is_simulation=True)
     
     robot.home()
     robot.ptp(Affine((-0.075, -0.171, 1.145), (0.000, 0.710, -0.000, 0.704)))
