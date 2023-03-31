@@ -89,7 +89,7 @@
       ```
       mkdir -p ~/projects && cd ~/projects
       ```
-    - Clone repo
+    - Clone repo (if not already cloned)
       ```
       git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
       ```
