@@ -54,7 +54,7 @@ RUN pip install scipy
 
 RUN mkdir -p /home/"$USER"/dependencies_ws/src
 
-RUN cd /home/"$USER"/dependencies_ws && git clone https://project_377_bot:glpat-DxteEaE_sAxRBiYGXhya@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/moveit2_wrapper.git
+RUN cd /home/"$USER"/dependencies_ws && git clone https://project_377_bot:glpat-DxteEaE_sAxRBiYGXhya@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/moveit_wrapper.git
 RUN cd /home/"$USER"/dependencies_ws && git clone https://project_376_bot:glpat-4-ky62LJgxLzKMzJDzjU@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/iras_interfaces.git
 RUN cd /home/"$USER"/dependencies_ws && git clone https://project_436_bot:glpat-Px2zh52V7EPq1HzU9igi@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/ros_environment.git
 
