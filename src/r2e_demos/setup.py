@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'test_ros_env = r2e_demos.test_ros_env:main'
+            'test_ros_env = r2e_demos.test_ros_env:main',
+            'r2e_cubes = r2e_demos.r2e_cubes:main'
         ],
     },
 )
