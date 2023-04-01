@@ -11,7 +11,7 @@
 4. Unpack downloaded sources
 5. Change IP in `src/kuka_eki/krl/EkiHwInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot
    controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
-6. Create new project on KUKA smartPAD (teach pedant) with KUKA smartHMI (user interface)
+6. Create new project on KUKA smartPAD (teach pendant) with KUKA smartHMI (touch screen user interface)
     - Open main menu <font size="1"> (key with small robot in the bottom right on smartPAD or top left in
       smartHMI) </font> &rarr; _Öffnen_
     - _Konfiguration_ &rarr; _Benutzergruppe_ &rarr; _Administrator_ (pass: kuka)
@@ -35,7 +35,7 @@
         - Select project "ros2_driver"
         - _Öffnen_
     - Navigate to "Dateien" tab in the left panel
-    - Copy in step 3 modified `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml`
+    - Copy in step 5 modified `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml`
       to `<KRC>/Config/User/Common/EthernetKRL`  
       ![EKI Interface XMLs](readme_imgs/xmls.png)
     - Create new folder `<KRC>/R1/Program/ros2_driver`
@@ -110,7 +110,7 @@
       source install/setup.bash
       ```
 2. Start robot driver
-    - I not already in container, attach to running container
+    - If not already in container, attach to running container
       ```
       docker exec -it r2e_cell /bin/bash
       ```
@@ -131,16 +131,16 @@
           ```
           ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
           ```
-4. Check out tutorial code
-    - open up VSCode (Windows key &rarr; type "code" &rarr; Enter)
-    - open folder "r2e_tutorial" in VSCode
-    - open file "src/r2e_demos/src/test_ros_env.cpp"
-    - read and understand the code
+3. Check out tutorial code
+    - Open up VSCode (Windows key &rarr; type "code" &rarr; Enter)
+    - Open folder "r2e_tutorial" in VSCode
+    - Open file `src/r2e_demos/r2e_demos/test_ros_env.py`
+    - Read and understand the code
     - You might notice the `is_simulation` flag while creating the RobotClient object. Currently, this only controls whether
       the real gripper is connected or not. Whether the movement of the robot is simulated or not, solely depends on 
       the `use_fake_hardware` parameter at launch. If you want to test your application on the real robot, and also want to move the 
       gripper, you need to set the `is_simulation` flag to false.
-5. Move robot
+4. Move robot
     - Open up a new terminal and attach to running container
       ```
       docker exec -it r2e_cell /bin/bash
