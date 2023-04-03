@@ -56,7 +56,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     ros-$ROS_DISTRO-controller-manager \
     ros-$ROS_DISTRO-sensor-msgs-py  \
     ros-$ROS_DISTRO-joy*  \
-    ros-$ROS_DISTRO-cv-bridge  \
+    ros-$ROS_DISTRO-cv-bridge
 
 USER $USER
 RUN pip install scipy
