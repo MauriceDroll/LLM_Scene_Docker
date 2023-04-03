@@ -47,7 +47,16 @@ RUN rosdep update
 USER root
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt update && \
-	apt install -y ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-joint-trajectory-controller ros-$ROS_DISTRO-joint-state-broadcaster ros-$ROS_DISTRO-controller-manager
+	apt install -y ros-$ROS_DISTRO-moveit  \
+    ros-$ROS_DISTRO-moveit-common  \
+    ros-$ROS_DISTRO-moveit-servo  \
+    ros-$ROS_DISTRO-xacro  \
+    ros-$ROS_DISTRO-joint-trajectory-controller  \
+    ros-$ROS_DISTRO-joint-state-broadcaster  \
+    ros-$ROS_DISTRO-controller-manager \
+    ros-$ROS_DISTRO-sensor-msgs-py  \
+    ros-$ROS_DISTRO-joy*  \
+    ros-$ROS_DISTRO-cv-bridge  \
 
 USER $USER
 RUN pip install scipy
