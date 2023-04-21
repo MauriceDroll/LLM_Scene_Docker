@@ -101,6 +101,15 @@
       ./start_docker.sh
       ```
       If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/ros_ws$`
+    - Set ROS_DOMAIN_ID. If there are multiple robots in use, make sure, that the set ROS_DOMAIN_ID is different on each PC
+      ```
+      export ROS_DOMAIN_ID=<id>
+      ```
+      You can check your currently set ROS_DOMAIN_ID by running
+      ```
+      echo $ROS_DOMAIN_ID
+      ```
+
     - In the container, build workspace:
       ```
       colcon build
@@ -110,9 +119,17 @@
       source install/setup.bash
       ```
 2. Start robot driver
-    - If not already in container, attach to running container
+    - If not already in container, attach to running container. Open up a new terminal and run
       ```
       docker exec -it r2e_cell /bin/bash
+      ```
+    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
+      ```
+      export ROS_DOMAIN_ID=<id>
+      ```
+      You can check your currently set ROS_DOMAIN_ID by running
+      ```
+      echo $ROS_DOMAIN_ID
       ```
     - Source workspace
       ```
@@ -144,6 +161,14 @@
     - Open up a new terminal and attach to running container
       ```
       docker exec -it r2e_cell /bin/bash
+      ```
+    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
+      ```
+      export ROS_DOMAIN_ID=<id>
+      ```
+      You can check your currently set ROS_DOMAIN_ID by running
+      ```
+      echo $ROS_DOMAIN_ID
       ```
     - Source workspace
       ```
