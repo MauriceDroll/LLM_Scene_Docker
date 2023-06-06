@@ -8,6 +8,7 @@
    from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl) (
    with your RZ account)   
    ![Download KRL](readme_imgs/krl_download.png)
+   **Note:** if you have no access to the repo, you can find the same files [here](https://github.com/gergely-soti/kuka_experimental/tree/foxy/kuka_eki/krl) for download.
 4. Unpack downloaded sources
 5. Change IP in `src/kuka_eki/krl/EkiHwInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot
    controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
