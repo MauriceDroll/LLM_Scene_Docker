@@ -5,7 +5,7 @@
 1. Boot up the robot
 2. Boot up the Windows PC and log in with your RZ account
 3. Download KRL sources
-   from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl) (with your RZ account)  **Note:** if you do not have access to the repo, you can find the same files [here](https://github.com/gergely-soti/kuka_experimental/tree/foxy/kuka_eki/krl) for download.
+   from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl) (with your RZ account).  **Note:** if you do not have access to the repo, you can find the same files [here](https://github.com/gergely-soti/kuka_experimental/tree/foxy/kuka_eki/krl) for download.
    ![Download KRL](readme_imgs/krl_download.png)
 4. Unpack downloaded sources
 5. Change IP in `src/kuka_eki/krl/EkiHwInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot
