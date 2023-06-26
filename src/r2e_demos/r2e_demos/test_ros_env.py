@@ -1,6 +1,6 @@
 import rclpy
 from ros_environment.scene import RobotClient
-from ros_environment.transform import Affine
+from manipulation_tasks.transform import Affine
 import time
 
 def main(args=None):
@@ -9,7 +9,7 @@ def main(args=None):
     
     # initialize robot client node; to open or close the gripper of the real 
     #  robot set is_simulation=False
-    robot = RobotClient(is_simulation=False)
+    robot = RobotClient(is_simulation=True)
     robot.home_pose = Affine((0.122, -0.052, 1.426), (0.004, 0.860, 0.007, 0.510))
     
     # move robot to home pose
