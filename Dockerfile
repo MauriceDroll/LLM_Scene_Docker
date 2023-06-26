@@ -67,7 +67,7 @@ RUN cd /home/"$USER"/dependencies_ws/src && git clone https://project_377_bot:gl
 RUN cd /home/"$USER"/dependencies_ws/src && git clone https://project_376_bot:glpat-4-ky62LJgxLzKMzJDzjU@www.w.hs-karlsruhe.de/gitlab/iras/common/ros_general/iras_interfaces.git
 RUN cd /home/"$USER"/dependencies_ws/src && git clone https://project_436_bot:glpat-Px2zh52V7EPq1HzU9igi@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/ros_environment.git
 
-RUN cd /home/"$USER"/dependencies_ws/src && git clone -b driver https://project_223_bot:glpat-4BUf7DzgVe1EM6D46QBy@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki.git
+RUN cd /home/"$USER"/dependencies_ws/src && git clone -b driver-humble https://project_223_bot:glpat-4BUf7DzgVe1EM6D46QBy@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki.git
 RUN cd /home/"$USER"/dependencies_ws/src && git clone https://project_437_bot:glpat-T9c6K71xc_2WKJVB7tmA@www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/ready2_educate.git
 
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && cd /home/"$USER"/dependencies_ws && colcon build
