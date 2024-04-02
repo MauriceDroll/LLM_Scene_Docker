@@ -4,12 +4,8 @@ The goal of this tutorial is for you to become more familiar with ROS2 and the f
 
 ## Exercise 1: setup your environment and run example
 
-1. Clone this repository
-```bash
-git clone https://github.com/IRAS-HKA/r2e_tutorial.git
-```
-2. Navigate to the 'r2e_tutorial' directory
-
+1. Clone or download and unpack this repository
+2. Navigate to the `r2e_tutorial` directory
 3. Build container
 ```bash
 ./start_docker.sh
@@ -46,7 +42,7 @@ source install/setup.bash
 ros2 run r2e_tutorial example
 ```
 
-## Exercise 2: Haus vom Nikolaus
+## Exercise 2 (optional): Haus vom Nikolaus
 Write a program that draws the "Haus vom Nikolaus" with the robot in the air.
 
 You can use the ```r2e_tutorial/src/example.py``` file as a starting point.
@@ -82,7 +78,7 @@ git commit -m "Added program to draw a house in the air with the robot"
 git push
 ```
 
-## Exercise 3: Implement methods for picking and placing objects
+## Exercise 3 (optional): Implement methods for picking and placing objects
 In this exercise, you will implement methods for picking and placing objects. 
 You can use ```complex_movement_example(robot, pose)``` from ```r2e_tutorial/src/example.py``` as a starting point.
 
@@ -96,7 +92,7 @@ place_joint_position(robot, joint_positions)
 ```
 Once you have implemented these methods, commit your changes and push them to the remote repository.
 
-## Exercise 4: Implement a method for building a pyramid of 6 blocks
+## Exercise 4 (optional): Implement a method for building a pyramid of 6 blocks
 In this exercise, you will implement a program for building and disassembling a pyramid of 6 blocks 
 (3 blocks in the first row, 2 blocks in the second row, 1 block in the third row).
 Use the methods you implemented in the previous exercise.
