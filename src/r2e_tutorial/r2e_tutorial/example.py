@@ -2,7 +2,6 @@ import rclpy
 from ros_environment.scene import RobotClient
 from manipulation_tasks.transform import Affine
 import numpy as np
-import time
 
 
 def complex_movement_example(robot, pose):
@@ -29,14 +28,12 @@ def main(args=None):
     # robot ptp movement to given joint positions
     success = robot.ptp_joint([np.pi / 4, -np.pi / 2, np.pi / 2, 0.0, -np.pi / 4, 0.0])
     print('ptp success', success)
-    time.sleep(2)
     # robot ptp movement to given cartesian pose
     #  first tuple represents cartesian coordinates (x, y, z), the second tuple
     #  represents rotation in quaternions (x, y, z, w)
     success = robot.ptp(Affine((0.03607227, 0.15249834, 1.20871037),
                                (3.80250600e-05, 9.89829634e-01, 4.76747912e-05, 1.42257839e-01)))
     print('ptp success', success)
-    time.sleep(2)
     current_pose = robot.node.get_transform('tcp_link', 'world')
     print(current_pose)
     # open gripper (does nothing in simulation)
@@ -45,11 +42,9 @@ def main(args=None):
     # robot ptp movement again; you can also use RPY angles instead of quaternions
     success = robot.ptp(Affine((-0.151, 0.193, 1.111), (np.pi, 0, -np.pi / 2)))
     print('ptp success', success)
-    time.sleep(2)
     # robot lin movement to given pose
     success = robot.lin(Affine((-0.051, 0.193, 1.111), (np.pi, 0, -np.pi / 2)))
     print('lin success', success)
-    time.sleep(2)
     # close gripper (does nothing when in simulation)
     robot.close_gripper()
     # back to home pose
@@ -63,7 +58,6 @@ def main(args=None):
     pose = current_pose * movement_tcp
     success = robot.lin(pose)
     print('lin success', success)
-    time.sleep(2)
 
     # translation in world coordinate system (0.1 in z_world direction)
     movement_world = Affine((0, 0, 0.1))
@@ -71,7 +65,6 @@ def main(args=None):
     pose = movement_world * pose
     success = robot.lin(pose)
     print('lin success', success)
-    time.sleep(2)
 
     movement_world = Affine((0, 0, 0.1))
     pose = movement_world * pose
@@ -83,7 +76,6 @@ def main(args=None):
     current_pose = robot.node.get_transform('tcp_link', 'world')
     complex_movement_example(robot, current_pose)
     print('complex movement done')
-    time.sleep(2)
 
     # destroy the robot node
     robot.destroy_node()
