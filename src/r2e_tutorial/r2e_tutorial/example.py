@@ -17,7 +17,7 @@ def main(args=None):
     rclpy.init(args=args)
 
     # initialize robot client node
-    # if not connected to the real robot set is_simulation=True
+    # if not connected to the real robot set is_simulation=True (currently it only makes a difference for handling the gripper)
     robot = RobotClient(is_simulation=True)
     # home joint positions of the robot
     robot.home_position = [0.0, -np.pi / 2, np.pi / 2, 0.0, np.pi / 4, 0.0]
