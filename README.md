@@ -21,19 +21,19 @@ You should now be inside the container and see following prompt:
 robot@<pc_name>:~/ros2_ws$
 ```
 
-5. Build workspace
+4. Build workspace
 
 ```bash
 colcon build
 ```
 
-6. Source workspace
+5. Source workspace
 
 ```bash
 source install/setup.bash
 ```
 
-7. Start robot driver and visualization
+6. Start robot driver and visualization
 
 ```bash
 ros2 launch kuka_kr3_cell_description cell.launch.py
@@ -42,19 +42,19 @@ ros2 launch kuka_kr3_cell_description cell.launch.py
 This should open up RViz and you should see the robot model.
 You can play around with MoveIt! and the robot should move in the visualization.
 
-8. Open a new terminal and connect to running container
+7. Open a new terminal and connect to running container
 
 ```bash
 docker exec -it r2e bash
 ```
 
-9. Source workspace
+8. Source workspace
 
 ```bash
 source install/setup.bash
 ```
 
-10. Run example
+9. Run example
 
 ```bash
 ros2 run r2e_tutorial example
