@@ -2,6 +2,8 @@
 
 The goal of this tutorial is for you to become more familiar with ROS2 and the frameworks that we use at IRAS. 
 
+**Note:** To set up the cell, if not done already, follow the instructions in the `cell_setup` branch of this repository.
+
 ## Exercise 1: setup your environment and run example
 
 1. Clone or download and unpack this repository
