@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'r2e_demos'
+package_name = 'r2e_tutorial'
 
 setup(
     name=package_name,
@@ -14,14 +14,14 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='robot',
-    maintainer_email='robot@todo.todo',
-    description='TODO: Package description',
+    maintainer_email='gergely.soti@h-ka.de',
+    description='Tutorial for ROS2 KUKA ready2educate cells with EKI driver',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'test_ros_env = r2e_demos.test_ros_env:main',
-            'r2e_cubes = r2e_demos.r2e_cubes:main'
+            'example = r2e_tutorial.example:main',
+            'house = r2e_tutorial.house:main'
         ],
     },
 )

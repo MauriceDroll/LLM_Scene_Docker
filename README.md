@@ -1,60 +1,135 @@
-# R2E Tutorial
+# ready2educate cell tutorial
 
-## First Time Setup - Robot
+The goal of this tutorial is for you to become more familiar with ROS2 and the frameworks that we use at IRAS. 
 
-1. Boot up the robot
-2. Boot up the Windows PC and log in with your RZ account
-3. Download KRL sources
-   from [this Link](https://www.w.hs-karlsruhe.de/gitlab/iras/research-projects/ki5grob/kuka-eki/-/tree/driver/krl) (with your RZ account).  **Note:** if you do not have access to the repo, you can find the same files [here](https://github.com/gergely-soti/kuka_experimental/tree/foxy/kuka_eki/krl) for download.
-   ![Download KRL](readme_imgs/krl_download.png)
-4. Unpack downloaded sources
-5. Change IP in `src/kuka_eki/krl/EkiHwInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml` to match the robot
-   controller's IP <font size="1"> (should be found on the robot cell somewhere) </font>
-6. Create new project on KUKA smartPAD (teach pendant) with KUKA smartHMI (touch screen user interface)
-    - Open main menu <font size="1"> (key with small robot in the bottom right on smartPAD or top left in
-      smartHMI) </font> &rarr; _Öffnen_
-    - _Konfiguration_ &rarr; _Benutzergruppe_ &rarr; _Administrator_ (pass: kuka)
-    - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
-        - "Ready2Educate" is the active project:
-            - _Aktuellen Zustand sichern_
-            - Name: "ros2_driver" &rarr; _OK_
-            - select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
-            - _Aktivieren_
-        - "Ready2Educate" is not the active project:
-            - Pin "Ready2Educate"
-            - _Aktivieren_ &rarr; type in new project name, e.g. "ros2_driver" &rarr; confirm with _OK_
-    - Confirm _Wollen Sie die Aktivierung des Projektes "ros2_driver" zulassen?_ with _Ja_
-    - Confirm _Projektverwaltung_ panel _Wollen Sie fortfahren?_ with _Ja_
-    - Wait until project is activated
-7. Insert downloaded KRL sources in new project
-    - On Windows PC open WorkVisual
-    - Load newly created project "ros2_driver" from robot cell
-        - _Datei_ &rarr; _Projekt öffnen_ &rarr; _Suchen_
-        - Select cell with the corresponding IP
-        - Select project "ros2_driver"
-        - _Öffnen_
-    - Navigate to "Dateien" tab in the left panel
-    - Copy in step 5 modified `src/kuka_eki/krl/EkiHWInterface.xml` and `src/kuka_eki/krl/EkiIOInterface.xml`
-      to `<KRC>/Config/User/Common/EthernetKRL`  
-      ![EKI Interface XMLs](readme_imgs/xmls.png)
-    - Create new folder `<KRC>/R1/Program/ros2_driver`
-    - Copy extracted `src/krl/kuka_eki_hw_interface.dat` and `src/krl/kuka_eki_hw_interface.src`
-      to `<KRC>/R1/Program/ros2_driver`  
-      ![KRL Program Files](readme_imgs/krl_files.png)
-8. Install program
-    - Switch to user group _Administrator_ on smartPAD <font size="1"> (see step 6) </font>
-    - Click _Installieren_ button  
-      ![Install Button](readme_imgs/install_button.png)
-    - _Weiter_ &rarr; _Weiter_ &rarr; _Weiter_ &rarr; _Ja_ on smartPAD &rarr;
-      _Ja_ on smartPAD &rarr; _Fertigstellen_
+## Exercise 1: setup your environment and run example
 
-## Start Hardware Interface on Robot
+1. Clone this repository
+```bash
+git clone https://www.w.hs-karlsruhe.de/gitlab/iras/student_projects/wintersemester_2023/r2e_tutorial.git 
+```
+2. Create a new branch with your IZ account name
+```bash
+git checkout -b <your_iz_account_name>
+```
+3. Add your branch to the remote repository
+```bash
+git push --set-upstream origin <your_iz_account_name>
+```
+4. Build container
+```bash
+cd r2e_tutorial
+./start_docker.sh
+```
+You should now be inside the container and see following prompt:
+```
+robot@<pc_name>:~/ros2_ws$
+```
+5. Build workspace
+```bash
+colcon build
+```
+6. Source workspace
+```bash
+source install/setup.bash
+```
+7. Start robot driver and visualization
+```bash
+ros2 launch kuka_kr3_cell_description cell.launch.py
+```
+This should open up RViz and you should see the robot model. 
+You can play around with MoveIt! and the robot should move in the visualization.
+
+8. Open a new terminal and connect to running container
+```bash
+docker exec -it r2e bash
+```
+9. Source workspace
+```bash
+source install/setup.bash
+```
+10. Run example
+```bash
+ros2 run r2e_tutorial example
+```
+
+## Exercise 2: Haus vom Nikolaus
+Write a program that draws the "Haus vom Nikolaus" with the robot in the air.
+
+You can use the ```r2e_tutorial/src/example.py``` file as a starting point.
+
+1. Create a new file ```r2e_tutorial/src/house.py```
+2. Write a program that draws the "Haus vom Nikolaus" with the robot in the air. 
+You can start by copying the example program and modifying it.
+3. Before you can run your program, you need to add it to the ```r2e_tutorial/setup.py``` file. 
+Add the following lines to the ```entry_points['console_scripts']``` section:
+```python
+'house = r2e_tutorial.house:main'
+```
+This is a list, don't forget the comma between the entries.
+
+This way, you can test your code by running ```ros2 run r2e_tutorial house``` after building the workspace.
+
+4. Build the workspace.  Make sure you are in the container and in the ```ros2_ws``` directory.
+```bash
+colcon build
+```
+5. Source the workspace
+```bash
+source install/setup.bash
+```
+6. Run your program
+```bash
+ros2 run r2e_tutorial house
+```
+7. Commit your changes and push them to the remote repository
+```bash
+git add --all
+git commit -m "Added program to draw a house in the air with the robot"
+git push
+```
+
+## Exercise 3: Implement methods for picking and placing objects
+In this exercise, you will implement methods for picking and placing objects. 
+You can use ```complex_movement_example(robot, pose)``` from ```r2e_tutorial/src/example.py``` as a starting point.
+
+Consider what types of motion is required for picking and placing objects (pre-pick, post-pick poses, approach, etc.). 
+Create a new file ```r2e_tutorial/src/pick_and_place.py``` and implement the following methods:
+```python
+pick_cartesian(robot, pose)
+pick_joint_position(robot, joint_positions)
+place_cartesian(robot, pose)
+place_joint_position(robot, joint_positions)
+```
+Once you have implemented these methods, commit your changes and push them to the remote repository.
+
+## Exercise 4: Implement a method for building a pyramid of 6 blocks
+In this exercise, you will implement a program for building and disassembling a pyramid of 6 blocks 
+(3 blocks in the first row, 2 blocks in the second row, 1 block in the third row).
+Use the methods you implemented in the previous exercise.
+
+Create a new file for your program, just like in exercise 2. Don't forget to add the program to the ```setup.py``` file.
+Before testing your code, build the workspace and source it.
+
+The goal is to run the code on the real robot. You will be able to pick up blocks from the slide and place them on the table.
+The pick pose for the blocks on the slide will be provided as joint positions, as well as the place pose when disassembling.
+Use cartesian poses for picking and placing the blocks on the table.
+
+You will only receive these joint positions once we are in the lab. Neither the blocks nor the slide is available in the simulation.
+Write your code in a way that you can easily specify and adapt these joint positions in the code.
+
+After you have implemented the program, commit your changes and push them to the remote repository.
+
+## Exercise 5: Test your code on the real robot
+Once you are in the lab, you can test your code on the real robot.
+
+### Start Hardware Interface on Robot
 
 1. Switch to user group _Administrator_ on smartHMI
 2. Activate project "ros2_driver" on smartHMI (if not already active)
-    - Open project management window <font size="1"> (blue WorkVisual icon (gear with robot in it) on smartHMI) </font>
+    - Open project management window <font size="1"> (blue WorkVisual icon - gear with robot in it - on smartHMI) </font>
     - Select "ros2_driver" in _Verfügbare Projekte_ &rarr; _Entpinnen_
-    - _Aktivieren_ &rarr; -> _Ja_
+    - _Aktivieren_ &rarr; _Ja_
     - Wait until project is activated
 3. On smartHMI navigate to  `R1/Program/ros2_driver`
 4. Select `kuka_eki_hw_interface.src` &rarr; _Anwählen_
@@ -80,108 +155,17 @@
       to be held in center position and the start key has to be held constantly to continue running
       the program
 
-## Setup ROS2 environment
+### Run your code on the real robot
 
-1. Clone and build repository "R2E Tutorial"
-    - Open a terminal (Ctrl + Alt + T) and navigate to projects folder
-      ```
-      mkdir -p ~/projects && cd ~/projects
-      ```
-    - Clone repo (if not already cloned); log in with your RZ account
-      ```
-      git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/r2e_tutorial.git
-      ```
-    - Navigate to cloned repo
-      ``` 
-      cd r2e_tutorial
-      ```
-    - Build container
-      ```
-      ./start_docker.sh
-      ```
-      If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/ros_ws$`
-    - Set ROS_DOMAIN_ID. If there are multiple robots in use, make sure, that the set ROS_DOMAIN_ID is different on each PC
-      ```
-      export ROS_DOMAIN_ID=<id>
-      ```
-      You can check your currently set ROS_DOMAIN_ID by running
-      ```
-      echo $ROS_DOMAIN_ID
-      ```
+Use one of the PCs in the lab, clone your repository and set up the workspace as before, 
+**EXCEPT!!!** before running ```./start_docker.sh```, edit it and set ```DOMAIN_ID``` in line 4 to the last 2 digits of the IP of the Roboter-Steuerung. 
 
-    - In the container, build workspace:
-      ```
-      colcon build
-      ```
-    - Source workspace
-      ```
-      source install/setup.bash
-      ```
-2. Start robot driver
-    - If not already in container, attach to running container. Open up a new terminal and run
-      ```
-      docker exec -it r2e_cell /bin/bash
-      ```
-    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
-      ```
-      export ROS_DOMAIN_ID=<id>
-      ```
-      You can check your currently set ROS_DOMAIN_ID by running
-      ```
-      echo $ROS_DOMAIN_ID
-      ```
-    - Source workspace
-      ```
-      source install/setup.bash
-      ```
-    - Launch robot driver with MoveIt2 wrapper
-      ```
-      ros2 launch kuka_kr3_cell_description cell.launch.py
-      ```
-      This will open up a simulated hardware with visualisation.  
-      To launch the real robot:
-        - Make sure that you are in our local network (Wi-Fi or LAN)
-        - Test your application in simulation first
-        - Make sure that the robot is not in a collision state when the application is executed on the real robot
-        - If everything is fine, execute
-          ```
-          ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
-          ```
-3. Check out tutorial code
-    - Open up VSCode (Windows key &rarr; type "code" &rarr; Enter)
-    - Open folder "r2e_tutorial" in VSCode
-    - Open file `src/r2e_demos/r2e_demos/test_ros_env.py`
-    - Read and understand the code
-    - You might notice the `is_simulation` flag while creating the RobotClient object. Currently, this only controls whether
-      the real gripper is connected or not. Whether the movement of the robot is simulated or not, solely depends on 
-      the `use_fake_hardware` parameter at launch. If you want to test your application on the real robot, and also want to move the 
-      gripper, you need to set the `is_simulation` flag to false.
-4. Move robot
-    - Open up a new terminal and attach to running container
-      ```
-      docker exec -it r2e_cell /bin/bash
-      ```
-    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
-      ```
-      export ROS_DOMAIN_ID=<id>
-      ```
-      You can check your currently set ROS_DOMAIN_ID by running
-      ```
-      echo $ROS_DOMAIN_ID
-      ```
-    - Source workspace
-      ```
-      source install/setup.bash
-      ```
-    - Run sample application
-      - before running the application, check the robot's movement in the simulated environment and make sure, that the
-        robot is not in a collision state when the application is executed on the real robot 
-      ```
-      ros2 run r2e_demos test_ros_env
-      ```
+Adapt your code: initialize ```RobotClient``` with ```is_simulation=True```.
 
-## Make your own ROS2 application
+To connect to the real robot run
+```bash
+ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot_ip>
+```
+where ```<robot_ip>``` is the IP address of the Roboter-Steuerung.
 
-Note, that this repository is a template repository. You can use it as a starting point for your own ROS2 applications
-but please do not push your changes to this repository.
-   
+Run your code as before.
