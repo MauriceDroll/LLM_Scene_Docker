@@ -6,19 +6,12 @@ The goal of this tutorial is for you to become more familiar with ROS2 and the f
 
 1. Clone this repository
 ```bash
-git clone https://www.w.hs-karlsruhe.de/gitlab/iras/student_projects/wintersemester_2023/r2e_tutorial.git 
+git clone https://github.com/IRAS-HKA/r2e_tutorial.git
 ```
-2. Create a new branch with your IZ account name
+2. Navigate to the 'r2e_tutorial' directory
+
+3. Build container
 ```bash
-git checkout -b <your_iz_account_name>
-```
-3. Add your branch to the remote repository
-```bash
-git push --set-upstream origin <your_iz_account_name>
-```
-4. Build container
-```bash
-cd r2e_tutorial
 ./start_docker.sh
 ```
 You should now be inside the container and see following prompt:
