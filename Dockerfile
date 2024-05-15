@@ -21,12 +21,27 @@ RUN groupadd -g "$GID" "$USER"  && \
 
 RUN echo "export ROS_DOMAIN_ID=${DOMAIN_ID}" >> /etc/bash.bashrc
 
+RUN sudo apt-get update && \
+    sudo apt-get install -y python3-pip nano 
+
+
+RUN curl https://ollama.ai/install.sh | sh
+
+RUN pip3 install ollama
+RUN pip install ollama
+
+
+
 USER $USER 
 RUN rosdep update
 
 RUN mkdir -p /home/$USER/ros_ws/src
 
 WORKDIR /home/$USER/ros_ws
-CMD /bin/bash
+COPY --chown=$USER:$USER --chmod=0755 ./startOllama.sh /home/$USER/ros_ws/startOllama.sh
+CMD ["/bin/bash"]
+
+
+ ENTRYPOINT [ "./startOllama.sh" ]
 
 

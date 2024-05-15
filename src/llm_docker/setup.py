@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'r2e_tutorial'
+package_name = 'LLM_Docker'
 
 setup(
     name=package_name,
@@ -14,8 +14,8 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='robot',
-    maintainer_email='gergely.soti@h-ka.de',
-    description='Tutorial for ROS2 KUKA ready2educate cells with EKI driver',
+    maintainer_email='',
+    description='Service to call a LLM model in ROS2',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
