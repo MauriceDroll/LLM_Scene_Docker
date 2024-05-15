@@ -13,5 +13,5 @@ navigate to llm_scene_docker/llm_files/
 
 execute: 
 
-```python    
+```python3   
 python3 ollama_test.py
