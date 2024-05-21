@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from object_detector_tensorflow_interfaces/srv/DetectObjectPosition.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module object_detector_tensorflow_interfaces {
+  module srv {
+    struct DetectObjectPosition_Request {
+      @verbatim (language="comment", text=
+        "filter for class name and select object with highest probability (If empty, select highest from all classes)")
+      string class_name;
+
+      @verbatim (language="comment", text=
+        "point is given relative to this reference frame")
+      string base_frame;
+
+      @verbatim (language="comment", text=
+        "used camera for depth image (\"roboception\" or \"realsense\")")
+      string camera_type;
+    };
+    struct DetectObjectPosition_Response {
+      @verbatim (language="comment", text=
+        "xyz of point in")
+      @unit (value="m")
+      geometry_msgs::msg::Point point;
+
+      @verbatim (language="comment", text=
+        "probability of detected object")
+      float probability;
+
+      @verbatim (language="comment", text=
+        "class_name of detected object")
+      string class_name;
+    };
+  };
+};

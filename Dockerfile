@@ -10,7 +10,7 @@ ARG USER=robot
 ARG PASSWORD=robot
 ARG UID=1000
 ARG GID=1000
-ARG DOMAIN_ID=0
+ARG DOMAIN_ID=66
 ENV UID=${UID}
 ENV GID=${GID}
 ENV USER=${USER}
@@ -19,7 +19,7 @@ RUN groupadd -g "$GID" "$USER"  && \
     echo "$USER:$PASSWORD" | chpasswd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sudogrp
 
-RUN echo "export ROS_DOMAIN_ID=${DOMAIN_ID}" >> /etc/bash.bashrc
+RUN echo "export ROS_DOMAIN_ID=66" >> /etc/bash.bashrc
 
 RUN sudo apt-get update && \
     sudo apt-get install -y python3-pip nano 
@@ -41,7 +41,7 @@ WORKDIR /home/$USER/ros_ws
 COPY --chown=$USER:$USER --chmod=0755 ./startOllama.sh /home/$USER/ros_ws/startOllama.sh
 CMD ["/bin/bash"]
 
-
- ENTRYPOINT [ "./startOllama.sh" ]
+#ENTRYPOINT [ "cd src ls" ]
+ENTRYPOINT [ "./startOllama.sh" ]
 
 

@@ -1,0 +1,3 @@
+string class_name               # filter for class name and select object with highest probability (If empty, select highest from all classes)
+string base_frame               # point is given relative to this reference frame
+string camera_type              # used camera for depth image ("roboception" or "realsense")

@@ -1,0 +1,11 @@
+// generated from rosidl_generator_cpp/resource/idl.hpp.em
+// generated code does not contain a copyright notice
+
+#ifndef OBJECT_DETECTOR_TENSORFLOW_INTERFACES__SRV__DETECT_OBJECT_POSITION_HPP_
+#define OBJECT_DETECTOR_TENSORFLOW_INTERFACES__SRV__DETECT_OBJECT_POSITION_HPP_
+
+#include "object_detector_tensorflow_interfaces/srv/detail/detect_object_position__struct.hpp"
+#include "object_detector_tensorflow_interfaces/srv/detail/detect_object_position__builder.hpp"
+#include "object_detector_tensorflow_interfaces/srv/detail/detect_object_position__traits.hpp"
+
+#endif  // OBJECT_DETECTOR_TENSORFLOW_INTERFACES__SRV__DETECT_OBJECT_POSITION_HPP_

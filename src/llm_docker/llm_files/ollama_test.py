@@ -1,5 +1,6 @@
 import ollama
 import time
+import re
 
 
 #response = ollama.chat(model='mistral', messages=[
@@ -23,15 +24,29 @@ import time
 #  },
 #])
 
+start = time.time()
 
-response_JSON_Wischblatt= ollama.chat(model='mistral', messages=[
+#response_JSON_Wischblatt= ollama.chat(model='mistral', messages=[
+#  {
+#    'role': 'user',
+#    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt? Antworte bitte im JSON',
+#  },
+#])
+
+response_JSON_Wischblatt_Assistant= ollama.chat(model='mistral', messages=[
   {
-    'role': 'user',
-    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt? Antworte bitte im JSON',
+    'role': 'assistant',
+    'content': '[INST] s liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt? [/INST] Antworte bitte im JSON',
   },
 ])
 
-start = time.time()
+
+""" response_JSON_Wischblatt= ollama.chat(model='mistral', messages=[
+  {
+    'role': 'user',
+    'content': '<s>[INST] What is the capital of Australia? [/INST] ',
+  },
+]) """
 #response_YAML= ollama.chat(model='mistral', messages=[
 #  {
  #   'role': 'user',
@@ -43,6 +58,13 @@ end = time.time()
 print("Dauer", end-start)
 
 
-print(response_JSON['message']['content'])
+print(response_JSON_Wischblatt_Assistant['message']['content'])
+
+xPos = response_JSON_Wischblatt_Assistant['message']['content'][1]
+
+
+print(xPos)
+
+
 
 
