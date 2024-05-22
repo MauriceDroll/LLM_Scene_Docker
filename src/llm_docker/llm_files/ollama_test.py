@@ -1,70 +1,47 @@
 import ollama
 import time
 import re
+from PostProcessing import PostProcessing
+# relevant für die String to Dict Konvertierung
+import ast
 
+from pydantic import BaseModel
+from lmformatenforcer import JsonSchemaParser
+#from lmformatenforcer.integrations.transformers import build_transformers_prefix_allowed_tokens_fn
+#from transformers import pipeline
 
-#response = ollama.chat(model='mistral', messages=[
-#  {
-#    'role': 'user',
-#    'content': 'We have the following scene: We have a box with items in it:1. Box_Wischblatt and center=geometry_msgs.msg.Point(x=543.5, y=608.5, z=0.0) and bounding_box=sensor_msgs.msg.RegionOfInterest(x_offset=321, y_offset=480, height=257, width=4450 2. Keilriemen_gross and center=geometry_msgs.msg.Point(x=629.5, y=405.5, z=0.0) and sensor_msgs.msg.RegionOfInterest(x_offset=336, y_offset=332, height=1473. Box_Messwertgeber and center=geometry_msgs.msg.Point(x=800.0, y=524.0, z=0.0) and bounding_box=sensor_msgs.msg.RegionOfInterest(x_offset=737, y_offset=465, height=118, width=126. What is the biggest item and where is it?',
-#  },
-#])
-
-#response_much_info = ollama.chat(model='mistral', messages=[
-#  {
-#    'role': 'user',
-#    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 und bounding_box=sensor_msgs.msg.RegionOfInterest(x_offset=321, y_offset=480, height=257, width=4450 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 und der Eigenschaft sensor_msgs.msg.RegionOfInterest(x_offset=336, y_offset=332, height=147 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0 und der Eigenschaft bounding_box=sensor_msgs.msg.RegionOfInterest(x_offset=737, y_offset=465, height=118, width=126. Wo befindet sich der größte Gegenstand bitte gebe seine entsprechenden x und y Koordinaten an.',
-#  },
-#])
-
-#response_JSON= ollama.chat(model='mistral', messages=[
-#  {
-#    'role': 'user',
-#    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der größte Gegenstand? Antworte bitte im JSON',
-#  },
-#])
 
 start = time.time()
 
-#response_JSON_Wischblatt= ollama.chat(model='mistral', messages=[
-#  {
-#    'role': 'user',
-#    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt? Antworte bitte im JSON',
-#  },
-#])
+class AnswerFormat(BaseModel):
+    object: str
+    Position: str
+
+
+prompt = f'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt?: {AnswerFormat.schema_json()} :\n'
+
 
 response_JSON_Wischblatt_Assistant= ollama.chat(model='mistral', messages=[
-  {
-    'role': 'assistant',
-    'content': '[INST] s liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt? [/INST] Antworte bitte im JSON',
-  },
-])
+    {
+      'role': 'assistant',
+      'content': prompt,
+    },
+  ])
 
 
-""" response_JSON_Wischblatt= ollama.chat(model='mistral', messages=[
-  {
-    'role': 'user',
-    'content': '<s>[INST] What is the capital of Australia? [/INST] ',
-  },
-]) """
-#response_YAML= ollama.chat(model='mistral', messages=[
-#  {
- #   'role': 'user',
-#    'content': 'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin:1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der größte Gegenstand? Antworte bitte im YAML',
-#  },
-#])
 end = time.time()
 
-print("Dauer", end-start)
+print("Dauer", PostProcessing.getUsedTime(end,start))
 
+print("-Ab hier kommt die Response-")
+dict_response = PostProcessing.formatToDict(response_JSON_Wischblatt_Assistant)
 
-print(response_JSON_Wischblatt_Assistant['message']['content'])
+print("dict_response", dict_response) 
 
-xPos = response_JSON_Wischblatt_Assistant['message']['content'][1]
+print("----")
+print("dict_response_object", PostProcessing.getWantedObject(dict_response))
 
-
-print(xPos)
-
+print("dict_response_object_pos", PostProcessing.getWantedPositon(dict_response)) 
 
 
 
