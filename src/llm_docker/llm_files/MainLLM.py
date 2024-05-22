@@ -17,9 +17,9 @@ class AnswerFormat(BaseModel):
 
 class MainLLM:
    
-  def __init__(self,sceneDescriptionUnsorted):
-    self.sceneDescriptionUnsorted = sceneDescriptionUnsorted
-    pass
+  #def __init__(self,sceneDescriptionUnsorted):
+  #  self.sceneDescriptionUnsorted = sceneDescriptionUnsorted
+  #  pass
    
   def startLLM():
     prompt = f'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin: 1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt?: {AnswerFormat.schema_json()} :\n'

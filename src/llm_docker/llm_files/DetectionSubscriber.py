@@ -4,6 +4,7 @@ from std_msgs.msg import String
 from object_detector_tensorflow_interfaces.msg import Detections
 from Detection import Detection
 from MainLLM import MainLLM
+from PreProcessing import PreProcessing
 
 
 class DetectionSubscriber(Node):
@@ -25,8 +26,11 @@ class DetectionSubscriber(Node):
         for detection in msg.detections:
             entry = Detection(detection.class_id, detection.class_name, detection.probability, detection.center, detection.bounding_box)
             detections.append(entry)
-        MainLLM(detections)
-        MainLLM.startLLM()
+        
+        PreProcessing.formatPrompt(detections)
+
+        #MainLLM(detections)
+        #MainLLM.startLLM()
         print("Habe fertig")
         pass
 
