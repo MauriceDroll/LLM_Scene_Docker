@@ -38,7 +38,10 @@ RUN rosdep update
 RUN mkdir -p /home/$USER/ros_ws/src
 
 WORKDIR /home/$USER/ros_ws
+RUN colcon build --symlink-install
 COPY --chown=$USER:$USER --chmod=0755 ./startOllama.sh /home/$USER/ros_ws/startOllama.sh
+RUN srv="ollama serve" && $srv& sleep 5 && ollama pull mistral
+
 CMD ["/bin/bash"]
 
 #ENTRYPOINT [ "cd src ls" ]

@@ -6,8 +6,8 @@ docker build --build-arg UID="$uid" --build-arg GID="$gid" --build-arg DOMAIN_ID
 SRC_CONTAINER=/home/robot/ros_ws/src
 SRC_HOST=./src
 
-SRC_CONTAINER_2=/home/robot/ros_ws/object_detector_tensorflow_interfaces
-SRC_HOST_2=./object_detector_tensorflow_interfaces
+SRC_CONTAINER_2=/home/robot/ros_ws/src/object_detector_tensorflow_interfaces
+SRC_HOST_2=./src/object_detector_tensorflow_interfaces
 
 docker run \
     -it \
@@ -15,7 +15,7 @@ docker run \
     --memory=8g \
     --name llm_docker \
     --privileged \
-    --gpus '"device=0"' \
+    --gpus all \
     --rm \
     -e DISPLAY=$DISPLAY \
     --volume=/dev:/dev \

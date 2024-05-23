@@ -1,6 +1,0 @@
-setup.py
-object_detector_tensorflow_interfaces/__init__.py
-object_detector_tensorflow_interfaces.egg-info/PKG-INFO
-object_detector_tensorflow_interfaces.egg-info/SOURCES.txt
-object_detector_tensorflow_interfaces.egg-info/dependency_links.txt
-object_detector_tensorflow_interfaces.egg-info/top_level.txt

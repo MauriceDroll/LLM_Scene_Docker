@@ -27,7 +27,8 @@ class DetectionSubscriber(Node):
             entry = Detection(detection.class_id, detection.class_name, detection.probability, detection.center, detection.bounding_box)
             detections.append(entry)
         
-        PreProcessing.formatPrompt(detections)
+        prompt = PreProcessing.formatPrompt(detections)
+        MainLLM.startLLM(prompt)
 
         #MainLLM(detections)
         #MainLLM.startLLM()
