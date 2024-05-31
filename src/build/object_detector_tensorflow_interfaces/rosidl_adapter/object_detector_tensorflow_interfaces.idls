@@ -1,0 +1,4 @@
+/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces/rosidl_adapter/object_detector_tensorflow_interfaces:msg/Detection.idl
+/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces/rosidl_adapter/object_detector_tensorflow_interfaces:msg/Detections.idl
+/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces/rosidl_adapter/object_detector_tensorflow_interfaces:srv/DetectObjects.idl
+/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces/rosidl_adapter/object_detector_tensorflow_interfaces:srv/DetectObjectPosition.idl

@@ -1,0 +1,334 @@
+[0.328s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.328s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7600615ebeb0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x760061df2050>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x760061df2050>>, mixin_verb=('build',))
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.362s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.362s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/robot/ros_ws/src'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extensions ['ignore', 'ignore_ament_install']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extension 'ignore'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extension 'ignore_ament_install'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extensions ['colcon_pkg']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extension 'colcon_pkg'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extensions ['colcon_meta']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extension 'colcon_meta'
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extensions ['ros']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(llm_docker) by extension 'ros'
+[0.378s] DEBUG:colcon.colcon_core.package_identification:Package 'llm_docker' with type 'ros.ament_python' and name 'llm_docker'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extension 'ignore'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extension 'ignore_ament_install'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extensions ['colcon_pkg']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extension 'colcon_pkg'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extensions ['colcon_meta']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extension 'colcon_meta'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extensions ['ros']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(object_detector_tensorflow_interfaces) by extension 'ros'
+[0.379s] DEBUG:colcon.colcon_core.package_identification:Package 'object_detector_tensorflow_interfaces' with type 'ros.ament_cmake' and name 'object_detector_tensorflow_interfaces'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extensions ['ignore', 'ignore_ament_install']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extension 'ignore'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extension 'ignore_ament_install'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extensions ['colcon_pkg']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extension 'colcon_pkg'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extensions ['colcon_meta']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extension 'colcon_meta'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extensions ['ros']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_docker) by extension 'ros'
+[0.380s] DEBUG:colcon.colcon_core.package_identification:Package 'pkg_llm_docker' with type 'ros.ament_python' and name 'pkg_llm_docker'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extension 'ignore'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extension 'ignore_ament_install'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extensions ['colcon_pkg']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extension 'colcon_pkg'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extensions ['colcon_meta']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extension 'colcon_meta'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extensions ['ros']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_llm_interfaces) by extension 'ros'
+[0.381s] DEBUG:colcon.colcon_core.package_identification:Package 'pkg_llm_interfaces' with type 'ros.ament_python' and name 'pkg_llm_interfaces'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extensions ['ignore', 'ignore_ament_install']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extension 'ignore'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extension 'ignore_ament_install'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extensions ['colcon_pkg']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extension 'colcon_pkg'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extensions ['colcon_meta']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extension 'colcon_meta'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extensions ['ros']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(pkg_website_llm) by extension 'ros'
+[0.382s] DEBUG:colcon.colcon_core.package_identification:Package 'pkg_website_llm' with type 'ros.ament_python' and name 'pkg_website_llm'
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.407s] Level 5:colcon.colcon_core.verb:set package 'object_detector_tensorflow_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.407s] DEBUG:colcon.colcon_core.verb:Building package 'object_detector_tensorflow_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces', 'merge_install': False, 'path': '/home/robot/ros_ws/src/object_detector_tensorflow_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.408s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.408s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.409s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.409s] DEBUG:colcon.colcon_core.verb:Building package 'pkg_llm_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robot/ros_ws/src/build/pkg_llm_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robot/ros_ws/src/install/pkg_llm_interfaces', 'merge_install': False, 'path': '/home/robot/ros_ws/src/pkg_llm_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_args' from command line to 'None'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_target' from command line to 'None'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_clean_cache' from command line to 'False'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_clean_first' from command line to 'False'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'cmake_force_configure' from command line to 'False'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'ament_cmake_args' from command line to 'None'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'catkin_cmake_args' from command line to 'None'
+[0.410s] Level 5:colcon.colcon_core.verb:set package 'pkg_website_llm' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.410s] DEBUG:colcon.colcon_core.verb:Building package 'pkg_website_llm' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robot/ros_ws/src/build/pkg_website_llm', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robot/ros_ws/src/install/pkg_website_llm', 'merge_install': False, 'path': '/home/robot/ros_ws/src/pkg_website_llm', 'symlink_install': False, 'test_result_base': None}
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_args' from command line to 'None'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_target' from command line to 'None'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_clean_cache' from command line to 'False'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_clean_first' from command line to 'False'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'cmake_force_configure' from command line to 'False'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'ament_cmake_args' from command line to 'None'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'catkin_cmake_args' from command line to 'None'
+[0.411s] Level 5:colcon.colcon_core.verb:set package 'llm_docker' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.411s] DEBUG:colcon.colcon_core.verb:Building package 'llm_docker' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robot/ros_ws/src/build/llm_docker', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robot/ros_ws/src/install/llm_docker', 'merge_install': False, 'path': '/home/robot/ros_ws/src/llm_docker', 'symlink_install': False, 'test_result_base': None}
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_args' from command line to 'None'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_target' from command line to 'None'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_clean_cache' from command line to 'False'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_clean_first' from command line to 'False'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'cmake_force_configure' from command line to 'False'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'ament_cmake_args' from command line to 'None'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'catkin_cmake_args' from command line to 'None'
+[0.412s] Level 5:colcon.colcon_core.verb:set package 'pkg_llm_docker' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.412s] DEBUG:colcon.colcon_core.verb:Building package 'pkg_llm_docker' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robot/ros_ws/src/build/pkg_llm_docker', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robot/ros_ws/src/install/pkg_llm_docker', 'merge_install': False, 'path': '/home/robot/ros_ws/src/pkg_llm_docker', 'symlink_install': False, 'test_result_base': None}
+[0.413s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.416s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.416s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robot/ros_ws/src/object_detector_tensorflow_interfaces' with build type 'ament_cmake'
+[0.416s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robot/ros_ws/src/object_detector_tensorflow_interfaces'
+[0.422s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.423s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.423s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.439s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/robot/ros_ws/src/pkg_llm_interfaces' with build type 'ament_python'
+[0.440s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_llm_interfaces', 'ament_prefix_path')
+[0.441s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/ament_prefix_path.ps1'
+[0.443s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/ament_prefix_path.dsv'
+[0.443s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/ament_prefix_path.sh'
+[0.446s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.446s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.454s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/robot/ros_ws/src/pkg_website_llm' with build type 'ament_python'
+[0.454s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_website_llm', 'ament_prefix_path')
+[0.455s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/ament_prefix_path.ps1'
+[0.456s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/ament_prefix_path.dsv'
+[0.456s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/ament_prefix_path.sh'
+[0.458s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.458s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.469s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/robot/ros_ws/install/pkg_website_llm:/home/robot/ros_ws/install/pkg_llm_docker:/home/robot/ros_ws/install/llm_docker:/opt/ros_dependencies/install/ros_environment:/opt/ros/humble /usr/bin/cmake --build /home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces -- -j8 -l8
+[0.852s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/robot/ros_ws/src/pkg_llm_interfaces'
+[0.854s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.854s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.156s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/robot/ros_ws/src/pkg_website_llm'
+[1.158s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.158s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.171s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/robot/ros_ws/install/pkg_website_llm:/home/robot/ros_ws/install/pkg_llm_docker:/home/robot/ros_ws/install/llm_docker:/opt/ros_dependencies/install/ros_environment:/opt/ros/humble /usr/bin/cmake --build /home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces -- -j8 -l8
+[1.349s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/robot/ros_ws/install/pkg_website_llm:/home/robot/ros_ws/install/pkg_llm_docker:/home/robot/ros_ws/install/llm_docker:/opt/ros_dependencies/install/ros_environment:/opt/ros/humble /usr/bin/cmake --install /home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces
+[1.421s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(object_detector_tensorflow_interfaces)
+[1.429s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/robot/ros_ws/install/pkg_website_llm:/home/robot/ros_ws/install/pkg_llm_docker:/home/robot/ros_ws/install/llm_docker:/opt/ros_dependencies/install/ros_environment:/opt/ros/humble /usr/bin/cmake --install /home/robot/ros_ws/src/build/object_detector_tensorflow_interfaces
+[1.432s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces' for CMake module files
+[1.433s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces' for CMake config files
+[1.434s] Level 1:colcon.colcon_core.shell:create_environment_hook('object_detector_tensorflow_interfaces', 'cmake_prefix_path')
+[1.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.ps1'
+[1.437s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.dsv'
+[1.438s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.sh'
+[1.438s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib'
+[1.439s] Level 1:colcon.colcon_core.shell:create_environment_hook('object_detector_tensorflow_interfaces', 'ld_library_path_lib')
+[1.441s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.ps1'
+[1.441s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.dsv'
+[1.442s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.sh'
+[1.442s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/bin'
+[1.442s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib/pkgconfig/object_detector_tensorflow_interfaces.pc'
+[1.443s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib/python3.10/site-packages'
+[1.443s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/bin'
+[1.446s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.ps1'
+[1.447s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.dsv'
+[1.448s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.sh'
+[1.449s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.bash'
+[1.451s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.zsh'
+[1.452s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/colcon-core/packages/object_detector_tensorflow_interfaces)
+[1.615s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/pkg_llm_interfaces': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_llm_interfaces/prefix_override:/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_llm_interfaces build --build-base /home/robot/ros_ws/src/build/pkg_llm_interfaces/build install --record /home/robot/ros_ws/src/build/pkg_llm_interfaces/install.log --single-version-externally-managed
+[1.616s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/pkg_website_llm': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_website_llm/prefix_override:/home/robot/ros_ws/src/install/pkg_website_llm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_website_llm build --build-base /home/robot/ros_ws/src/build/pkg_website_llm/build install --record /home/robot/ros_ws/src/build/pkg_website_llm/install.log --single-version-externally-managed
+[1.651s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(object_detector_tensorflow_interfaces)
+[1.655s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces' for CMake module files
+[1.657s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces' for CMake config files
+[1.658s] Level 1:colcon.colcon_core.shell:create_environment_hook('object_detector_tensorflow_interfaces', 'cmake_prefix_path')
+[1.660s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.ps1'
+[1.660s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.dsv'
+[1.660s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/cmake_prefix_path.sh'
+[1.661s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib'
+[1.661s] Level 1:colcon.colcon_core.shell:create_environment_hook('object_detector_tensorflow_interfaces', 'ld_library_path_lib')
+[1.662s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.ps1'
+[1.663s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.dsv'
+[1.663s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/hook/ld_library_path_lib.sh'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/bin'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib/pkgconfig/object_detector_tensorflow_interfaces.pc'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib/python3.10/site-packages'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/bin'
+[1.666s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.ps1'
+[1.666s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.dsv'
+[1.667s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.sh'
+[1.667s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.bash'
+[1.667s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/object_detector_tensorflow_interfaces/package.zsh'
+[1.668s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/share/colcon-core/packages/object_detector_tensorflow_interfaces)
+[1.668s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/robot/ros_ws/src/llm_docker' with build type 'ament_python'
+[1.668s] Level 1:colcon.colcon_core.shell:create_environment_hook('llm_docker', 'ament_prefix_path')
+[1.692s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/ament_prefix_path.ps1'
+[1.693s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/ament_prefix_path.dsv'
+[1.694s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/ament_prefix_path.sh'
+[1.696s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.696s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.992s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'llm_docker' doesn't explicitly install a marker in the package index (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[1.992s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'llm_docker' doesn't explicitly install the 'package.xml' file (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[1.993s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/robot/ros_ws/src/llm_docker'
+[1.995s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.995s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.044s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces' for CMake module files
+[2.044s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/pkg_llm_interfaces' returned '0': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_llm_interfaces/prefix_override:/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_llm_interfaces build --build-base /home/robot/ros_ws/src/build/pkg_llm_interfaces/build install --record /home/robot/ros_ws/src/build/pkg_llm_interfaces/install.log --single-version-externally-managed
+[2.045s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces' for CMake config files
+[2.046s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib'
+[2.046s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces/bin'
+[2.046s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/pkgconfig/pkg_llm_interfaces.pc'
+[2.046s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/python3.10/site-packages'
+[2.046s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_llm_interfaces', 'pythonpath')
+[2.047s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/pythonpath.ps1'
+[2.048s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/pythonpath.dsv'
+[2.048s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/hook/pythonpath.sh'
+[2.048s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_interfaces/bin'
+[2.048s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pkg_llm_interfaces)
+[2.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/package.ps1'
+[2.050s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/package.dsv'
+[2.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/package.sh'
+[2.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/package.bash'
+[2.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/pkg_llm_interfaces/package.zsh'
+[2.052s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/pkg_llm_interfaces/share/colcon-core/packages/pkg_llm_interfaces)
+[2.052s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/robot/ros_ws/src/pkg_llm_docker' with build type 'ament_python'
+[2.052s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_llm_docker', 'ament_prefix_path')
+[2.055s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/ament_prefix_path.ps1'
+[2.055s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/ament_prefix_path.dsv'
+[2.056s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/ament_prefix_path.sh'
+[2.059s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.059s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.072s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm' for CMake module files
+[2.073s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/pkg_website_llm' returned '0': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_website_llm/prefix_override:/home/robot/ros_ws/src/install/pkg_website_llm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_website_llm build --build-base /home/robot/ros_ws/src/build/pkg_website_llm/build install --record /home/robot/ros_ws/src/build/pkg_website_llm/install.log --single-version-externally-managed
+[2.073s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm' for CMake config files
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm/lib'
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm/bin'
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm/lib/pkgconfig/pkg_website_llm.pc'
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm/lib/python3.10/site-packages'
+[2.074s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_website_llm', 'pythonpath')
+[2.076s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/pythonpath.ps1'
+[2.076s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/pythonpath.dsv'
+[2.076s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/hook/pythonpath.sh'
+[2.077s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_website_llm/bin'
+[2.077s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pkg_website_llm)
+[2.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/package.ps1'
+[2.079s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/package.dsv'
+[2.079s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/package.sh'
+[2.079s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/package.bash'
+[2.080s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_website_llm/share/pkg_website_llm/package.zsh'
+[2.080s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/pkg_website_llm/share/colcon-core/packages/pkg_website_llm)
+[2.358s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/robot/ros_ws/src/pkg_llm_docker'
+[2.360s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.360s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.400s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/llm_docker': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/llm_docker/prefix_override:/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/llm_docker build --build-base /home/robot/ros_ws/src/build/llm_docker/build install --record /home/robot/ros_ws/src/build/llm_docker/install.log --single-version-externally-managed
+[2.707s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker' for CMake module files
+[2.707s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/llm_docker' returned '0': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/llm_docker/prefix_override:/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/llm_docker build --build-base /home/robot/ros_ws/src/build/llm_docker/build install --record /home/robot/ros_ws/src/build/llm_docker/install.log --single-version-externally-managed
+[2.708s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker' for CMake config files
+[2.708s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker/lib'
+[2.708s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker/bin'
+[2.708s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker/lib/pkgconfig/llm_docker.pc'
+[2.708s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages'
+[2.709s] Level 1:colcon.colcon_core.shell:create_environment_hook('llm_docker', 'pythonpath')
+[2.710s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/pythonpath.ps1'
+[2.710s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/pythonpath.dsv'
+[2.710s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/hook/pythonpath.sh'
+[2.711s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/llm_docker/bin'
+[2.711s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(llm_docker)
+[2.712s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/package.ps1'
+[2.713s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/package.dsv'
+[2.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/package.sh'
+[2.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/package.bash'
+[2.714s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/llm_docker/share/llm_docker/package.zsh'
+[2.714s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/llm_docker/share/colcon-core/packages/llm_docker)
+[2.752s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robot/ros_ws/src/pkg_llm_docker': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/pkg_llm_interfaces:${AMENT_PREFIX_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/pkg_llm_docker/prefix_override:/home/robot/ros_ws/src/install/pkg_llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_llm_docker build --build-base /home/robot/ros_ws/src/build/pkg_llm_docker/build install --record /home/robot/ros_ws/src/build/pkg_llm_docker/install.log --single-version-externally-managed
+[3.054s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker' for CMake module files
+[3.055s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robot/ros_ws/src/pkg_llm_docker' returned '0': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/pkg_llm_interfaces:${AMENT_PREFIX_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/pkg_llm_docker/prefix_override:/home/robot/ros_ws/src/install/pkg_llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/pkg_llm_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_llm_docker build --build-base /home/robot/ros_ws/src/build/pkg_llm_docker/build install --record /home/robot/ros_ws/src/build/pkg_llm_docker/install.log --single-version-externally-managed
+[3.055s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker' for CMake config files
+[3.056s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker/lib'
+[3.056s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker/bin'
+[3.056s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker/lib/pkgconfig/pkg_llm_docker.pc'
+[3.056s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker/lib/python3.10/site-packages'
+[3.056s] Level 1:colcon.colcon_core.shell:create_environment_hook('pkg_llm_docker', 'pythonpath')
+[3.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/pythonpath.ps1'
+[3.058s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/pythonpath.dsv'
+[3.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/hook/pythonpath.sh'
+[3.059s] Level 1:colcon.colcon_core.environment:checking '/home/robot/ros_ws/src/install/pkg_llm_docker/bin'
+[3.059s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pkg_llm_docker)
+[3.060s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/package.ps1'
+[3.061s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/package.dsv'
+[3.061s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/package.sh'
+[3.062s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/package.bash'
+[3.062s] INFO:colcon.colcon_core.shell:Creating package script '/home/robot/ros_ws/src/install/pkg_llm_docker/share/pkg_llm_docker/package.zsh'
+[3.062s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robot/ros_ws/src/install/pkg_llm_docker/share/colcon-core/packages/pkg_llm_docker)
+[3.063s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.063s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.063s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.064s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.070s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[3.070s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.070s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.070s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.072s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[3.073s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.075s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robot/ros_ws/src/install/local_setup.ps1'
+[3.076s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/robot/ros_ws/src/install/_local_setup_util_ps1.py'
+[3.078s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robot/ros_ws/src/install/setup.ps1'
+[3.080s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robot/ros_ws/src/install/local_setup.sh'
+[3.081s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/robot/ros_ws/src/install/_local_setup_util_sh.py'
+[3.082s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robot/ros_ws/src/install/setup.sh'
+[3.085s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robot/ros_ws/src/install/local_setup.bash'
+[3.085s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robot/ros_ws/src/install/setup.bash'
+[3.088s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robot/ros_ws/src/install/local_setup.zsh'
+[3.088s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robot/ros_ws/src/install/setup.zsh'

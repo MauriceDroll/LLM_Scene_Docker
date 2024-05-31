@@ -1,0 +1,3 @@
+[console_scripts]
+my_llm_node = pkg_llm_docker.my_llm_node:main
+

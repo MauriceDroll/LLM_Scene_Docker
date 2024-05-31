@@ -1,0 +1,18 @@
+[0.706s] Invoking command in '/home/robot/ros_ws/src/llm_docker': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/llm_docker/prefix_override:/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/llm_docker build --build-base /home/robot/ros_ws/src/build/llm_docker/build install --record /home/robot/ros_ws/src/build/llm_docker/install.log --single-version-externally-managed
+[0.958s] running egg_info
+[0.959s] writing ../build/llm_docker/UNKNOWN.egg-info/PKG-INFO
+[0.960s] writing dependency_links to ../build/llm_docker/UNKNOWN.egg-info/dependency_links.txt
+[0.960s] writing requirements to ../build/llm_docker/UNKNOWN.egg-info/requires.txt
+[0.960s] writing top-level names to ../build/llm_docker/UNKNOWN.egg-info/top_level.txt
+[0.961s] reading manifest file '../build/llm_docker/UNKNOWN.egg-info/SOURCES.txt'
+[0.962s] writing manifest file '../build/llm_docker/UNKNOWN.egg-info/SOURCES.txt'
+[0.962s] running build
+[0.962s] running install
+[0.963s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.963s]   warnings.warn(
+[0.963s] running install_egg_info
+[0.965s] removing '/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages/UNKNOWN-0.0.0-py3.10.egg-info' (and everything under it)
+[0.965s] Copying ../build/llm_docker/UNKNOWN.egg-info to /home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages/UNKNOWN-0.0.0-py3.10.egg-info
+[0.966s] running install_scripts
+[0.989s] writing list of installed files to '/home/robot/ros_ws/src/build/llm_docker/install.log'
+[1.014s] Invoked command in '/home/robot/ros_ws/src/llm_docker' returned '0': AMENT_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robot/ros_ws/src/build/llm_docker/prefix_override:/home/robot/ros_ws/src/install/llm_docker/lib/python3.10/site-packages:/home/robot/ros_ws/src/install/object_detector_tensorflow_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/llm_docker build --build-base /home/robot/ros_ws/src/build/llm_docker/build install --record /home/robot/ros_ws/src/build/llm_docker/install.log --single-version-externally-managed
