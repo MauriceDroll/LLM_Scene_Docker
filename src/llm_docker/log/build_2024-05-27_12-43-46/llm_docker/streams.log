@@ -1,0 +1,19 @@
+[0.661s] Invoking command in '/home/robot/ros_ws/src/llm_docker': PYTHONPATH=/home/robot/ros_ws/src/llm_docker/build/llm_docker/prefix_override:/home/robot/ros_ws/src/llm_docker/install/llm_docker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/llm_docker build --build-base /home/robot/ros_ws/src/llm_docker/build/llm_docker/build install --record /home/robot/ros_ws/src/llm_docker/build/llm_docker/install.log --single-version-externally-managed
+[0.900s] running egg_info
+[0.900s] creating build/llm_docker/UNKNOWN.egg-info
+[0.901s] writing build/llm_docker/UNKNOWN.egg-info/PKG-INFO
+[0.901s] writing dependency_links to build/llm_docker/UNKNOWN.egg-info/dependency_links.txt
+[0.901s] writing requirements to build/llm_docker/UNKNOWN.egg-info/requires.txt
+[0.901s] writing top-level names to build/llm_docker/UNKNOWN.egg-info/top_level.txt
+[0.902s] writing manifest file 'build/llm_docker/UNKNOWN.egg-info/SOURCES.txt'
+[0.903s] reading manifest file 'build/llm_docker/UNKNOWN.egg-info/SOURCES.txt'
+[0.904s] writing manifest file 'build/llm_docker/UNKNOWN.egg-info/SOURCES.txt'
+[0.904s] running build
+[0.904s] running install
+[0.904s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.904s]   warnings.warn(
+[0.905s] running install_egg_info
+[0.908s] Copying build/llm_docker/UNKNOWN.egg-info to /home/robot/ros_ws/src/llm_docker/install/llm_docker/lib/python3.10/site-packages/UNKNOWN-0.0.0-py3.10.egg-info
+[0.909s] running install_scripts
+[0.942s] writing list of installed files to '/home/robot/ros_ws/src/llm_docker/build/llm_docker/install.log'
+[0.966s] Invoked command in '/home/robot/ros_ws/src/llm_docker' returned '0': PYTHONPATH=/home/robot/ros_ws/src/llm_docker/build/llm_docker/prefix_override:/home/robot/ros_ws/src/llm_docker/install/llm_docker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/llm_docker build --build-base /home/robot/ros_ws/src/llm_docker/build/llm_docker/build install --record /home/robot/ros_ws/src/llm_docker/build/llm_docker/install.log --single-version-externally-managed

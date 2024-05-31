@@ -15,7 +15,6 @@ docker run \
     --memory=8g \
     --name llm_docker \
     --privileged \
-    --gpus all \
     --rm \
     -e DISPLAY=$DISPLAY \
     --volume=/dev:/dev \

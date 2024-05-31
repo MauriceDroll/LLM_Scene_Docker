@@ -28,7 +28,8 @@ RUN sudo apt-get update && \
 RUN curl https://ollama.ai/install.sh | sh
 
 RUN pip3 install ollama
-RUN pip install ollama
+RUN pip3 install pydantic lm-format-enforcer 
+RUN pip install ollama flask
 
 
 
@@ -36,6 +37,7 @@ USER $USER
 RUN rosdep update
 
 RUN mkdir -p /home/$USER/ros_ws/src
+
 
 WORKDIR /home/$USER/ros_ws
 RUN colcon build --symlink-install
