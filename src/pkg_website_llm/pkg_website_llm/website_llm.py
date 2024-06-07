@@ -29,7 +29,7 @@ def index():
 
 @app.route('/button_click', methods=['POST'])
 def button_click():
-    print("Anfrage: ", request.form['request'])
+    print("Anfrage (von webseite_llm): ", request.form['request'])
     UserInput.userInput_str = request.form['request']
 
     if hasattr(None,'server'):
