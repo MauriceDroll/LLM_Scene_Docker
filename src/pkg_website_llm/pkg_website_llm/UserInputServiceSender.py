@@ -15,7 +15,8 @@ class UserInputService(Node):
         print("Node wurde initialisiert")
 
     def userinput_callback(self, request, response):
-        response.user_input = UserInput.userInput_str
+        response.user_input = UserInput.getUserInput()
+        #print(UserInput.userInput_str)
         print("Service wurde aufgerufen")
         return response
     
@@ -31,7 +32,7 @@ class UserInputService(Node):
         print("Service erzeugt")
 
         #rclpy.spin('user_input')
-        rclpy.spin(self.srv)
+        #rclpy.spin(self.srv)
 
     
 
