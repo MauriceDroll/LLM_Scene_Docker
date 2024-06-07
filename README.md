@@ -13,9 +13,8 @@ navigate to llm_scene_docker/llm_files/
 
 execute: 
 
-```python3   
+```python3  ```
 python3 MainLLM.py
-’’’
 
 ## Start the website
 
@@ -26,8 +25,12 @@ ros2 run pkg_website_llm website_llm
 
 - fix the website background -> css somehow not visible
 - fix imports in website_llm.py since files are again not visible
-- then start website again and test the service of /user_input by using the terminal
-: ros2 service call user_input llm_interfaces/srv/UserInteraction "{}"
 
 
 
+## How to mock (bypass the LLM) 
+
+1. Connect to Docker
+2. enter on the terminal:
+
+ros2 run pkg_pack_item_server pack_item_server
