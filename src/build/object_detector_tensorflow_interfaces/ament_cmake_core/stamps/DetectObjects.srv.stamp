@@ -1,5 +1,0 @@
-sensor_msgs/Image image
-sensor_msgs/RegionOfInterest roi
----
-Detections detections
-sensor_msgs/Image result_image
