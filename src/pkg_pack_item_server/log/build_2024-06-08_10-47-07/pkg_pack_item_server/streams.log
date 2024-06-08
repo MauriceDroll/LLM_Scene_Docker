@@ -1,0 +1,39 @@
+[0.668s] Invoking command in '/home/robot/ros_ws/src/pkg_pack_item_server': PYTHONPATH=/home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/prefix_override:/home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/pkg_pack_item_server build --build-base /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build install --record /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/install.log --single-version-externally-managed
+[0.909s] running egg_info
+[0.909s] creating build/pkg_pack_item_server/pkg_pack_item_server.egg-info
+[0.909s] writing build/pkg_pack_item_server/pkg_pack_item_server.egg-info/PKG-INFO
+[0.909s] writing dependency_links to build/pkg_pack_item_server/pkg_pack_item_server.egg-info/dependency_links.txt
+[0.910s] writing entry points to build/pkg_pack_item_server/pkg_pack_item_server.egg-info/entry_points.txt
+[0.910s] writing requirements to build/pkg_pack_item_server/pkg_pack_item_server.egg-info/requires.txt
+[0.910s] writing top-level names to build/pkg_pack_item_server/pkg_pack_item_server.egg-info/top_level.txt
+[0.910s] writing manifest file 'build/pkg_pack_item_server/pkg_pack_item_server.egg-info/SOURCES.txt'
+[0.912s] reading manifest file 'build/pkg_pack_item_server/pkg_pack_item_server.egg-info/SOURCES.txt'
+[0.913s] writing manifest file 'build/pkg_pack_item_server/pkg_pack_item_server.egg-info/SOURCES.txt'
+[0.913s] running build
+[0.913s] running build_py
+[0.913s] creating /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build
+[0.913s] creating /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib
+[0.913s] creating /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib/pkg_pack_item_server
+[0.913s] copying pkg_pack_item_server/pack_item_server.py -> /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib/pkg_pack_item_server
+[0.913s] copying pkg_pack_item_server/__init__.py -> /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib/pkg_pack_item_server
+[0.914s] running install
+[0.914s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.914s]   warnings.warn(
+[0.914s] running install_lib
+[0.915s] creating /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server
+[0.915s] copying /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib/pkg_pack_item_server/pack_item_server.py -> /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server
+[0.915s] copying /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build/lib/pkg_pack_item_server/__init__.py -> /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server
+[0.916s] byte-compiling /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server/pack_item_server.py to pack_item_server.cpython-310.pyc
+[0.917s] byte-compiling /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server/__init__.py to __init__.cpython-310.pyc
+[0.917s] running install_data
+[0.917s] creating /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/share/ament_index
+[0.917s] creating /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/share/ament_index/resource_index
+[0.918s] creating /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/share/ament_index/resource_index/packages
+[0.918s] copying resource/pkg_pack_item_server -> /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/share/ament_index/resource_index/packages
+[0.918s] copying package.xml -> /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/share/pkg_pack_item_server
+[0.918s] running install_egg_info
+[0.920s] Copying build/pkg_pack_item_server/pkg_pack_item_server.egg-info to /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages/pkg_pack_item_server-0.0.0-py3.10.egg-info
+[0.921s] running install_scripts
+[0.942s] Installing pack_item_server script to /home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/pkg_pack_item_server
+[0.942s] writing list of installed files to '/home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/install.log'
+[0.965s] Invoked command in '/home/robot/ros_ws/src/pkg_pack_item_server' returned '0': PYTHONPATH=/home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/prefix_override:/home/robot/ros_ws/src/pkg_pack_item_server/install/pkg_pack_item_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/pkg_pack_item_server build --build-base /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/build install --record /home/robot/ros_ws/src/pkg_pack_item_server/build/pkg_pack_item_server/install.log --single-version-externally-managed

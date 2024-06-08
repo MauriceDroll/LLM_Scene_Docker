@@ -1,12 +1,12 @@
 import rclpy
 from rclpy.node import Node
-from llm_interfaces.srv import SceneInterpretation
+from llm_interfaces.srv import SceneInterpreation
 
 class PackItemsService(Node):
 
     def __init__(self):
         super().__init__('pack_items_service')
-        self.srv = self.create_service(SceneInterpretation, 'scene_interpretation', self.pack_items_callback)
+        self.srv = self.create_service(SceneInterpreation, 'scene_interpretation', self.pack_items_callback)
         self.get_logger().info('Service server is ready.')
 
     def pack_items_callback(self, request, response):

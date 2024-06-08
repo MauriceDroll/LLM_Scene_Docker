@@ -1,0 +1,3 @@
+[console_scripts]
+pack_item_server = pkg_pack_item_server.pack_item_server:main
+
