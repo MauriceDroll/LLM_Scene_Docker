@@ -1,9 +1,0 @@
-{
-  "package_name": "object_detector_tensorflow_interfaces",
-  "non_idl_tuples": [
-    "/home/robot/ros_ws/src/object_detector_tensorflow_interfaces:msg/Detection.msg",
-    "/home/robot/ros_ws/src/object_detector_tensorflow_interfaces:msg/Detections.msg",
-    "/home/robot/ros_ws/src/object_detector_tensorflow_interfaces:srv/DetectObjects.srv",
-    "/home/robot/ros_ws/src/object_detector_tensorflow_interfaces:srv/DetectObjectPosition.srv"
-  ]
-}
