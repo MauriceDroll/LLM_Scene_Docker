@@ -10,7 +10,7 @@ class UserInputService(Node):
     def __init__(self):
         rclpy.init(args=None)
         super().__init__('UserInputServiceSender')
-        self.srv = self.create_service(UserInteraction, 'user_input', self.userinput_callback)
+        self.srv = self.create_service(UserInteraction, 'user_interaction', self.userinput_callback)
 
         print("Node wurde initialisiert")
 
