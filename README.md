@@ -2,6 +2,8 @@
 
 This container is running as a ROS2 Node and contains a Ollama installation with Mistral as a LLM.
 
+It also contains the website which is used to get the user input.
+
 
 ## Usage
 
@@ -34,3 +36,7 @@ ros2 run pkg_website_llm website_llm
 2. enter on the terminal:
 
 ros2 run pkg_pack_item_server pack_item_server
+
+3. Result is hard coded:
+
+['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
