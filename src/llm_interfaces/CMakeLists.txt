@@ -21,6 +21,8 @@ set(DEPENDENCIES
   "sensor_msgs"
   "object_detector_tensorflow_interfaces"
 )
+#  "object_detector_tensorflow_interfaces"
+
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SceneInterpretation.srv"

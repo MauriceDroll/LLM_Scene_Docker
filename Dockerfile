@@ -31,6 +31,10 @@ RUN pip3 install ollama
 RUN pip3 install pydantic lm-format-enforcer 
 RUN pip install ollama flask
 
+RUN git clone -b devel https://github.com/eshan-savla/object_detector_tensorflow.git
+RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
+    rm -rf ./object_detector_tensorflow
+
 
 
 USER $USER 
