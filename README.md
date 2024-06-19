@@ -22,6 +22,18 @@ python3 MainLLM.py
 
 ros2 run pkg_website_llm website_llm 
 
+## How to request the User Input
+
+1. Connect to Docker
+2. enter on the terminal
+   
+ros2 service call /user_interaction llm_interfaces/srv/UserInteraction {''}
+
+Please not in the {}-brackets should be the ObjectDetections, so that the Website can display them.
+
+3. The terminal shows the user input.
+
+
 
 ## to do
 

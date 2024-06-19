@@ -1,7 +1,7 @@
 #!/bin/sh
 uid=$(eval "id -u")
 gid=$(eval "id -g")
-docker build --no-cache --build-arg UID="$uid" --build-arg GID="$gid" --build-arg DOMAIN_ID=0 -t llm_docker .
+docker build --build-arg UID="$uid" --build-arg GID="$gid" --build-arg DOMAIN_ID=0 -t llm_docker .
 
 RUN git clone -b devel https://github.com/eshan-savla/object_detector_tensorflow.git
 RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
