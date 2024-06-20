@@ -6,26 +6,21 @@
     <title>AIP_Website</title>
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
     <!-- jQuery einbinden -->
-    <link rel="stylesheet" url('/static/css/style.css')">
-    <!-- <link rel="stylesheet" href="/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates/style.css"> -->
+    <!-- <link rel="stylesheet" href="/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/static/css/style.css">
+    <link rel="stylesheet" href="/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates/style.css"> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body style="background-image: url('/static/images/Hintergrund.png');">
-
     <h1 style="text-align: center; color: white">AIP Webseite</h1>
-    <h2 style="text-align: center; color: white"">Bitte stellen Sie eine Anfrage:</h2>
-    <div class="container">
+    <h2 style="text-align: center; color: white">Bitte stellen Sie eine Anfrage:</h2>
+    <div class="container" style="text-align: center; color: white" >
        
-        <form style="text-align: center; color: white">
+        <form>
             <label for="fname">Please Insert Your Request here:</label>
-            <input type="textarea" id="request_id" name="request_name"><br><br>
-            <button id="button1" onclick="buttonClicked()">Absenden</button>
-            <br><br>
+            <input type="text" id="request_id" name="request_name"><br><br>
           </form> 
-         
-
-          <img style="  display: block; margin-left: auto; margin-right: auto; width: 50%; width:500px;height:500px;" src="/static/images/Platzhalter.png" alt="Objekt 1"> 
+          <button id="button1" onclick="buttonClicked()">Absenden</button>
     </div>
 
     <script>
@@ -34,18 +29,6 @@
                 alert(response.message);
             });
         }
-        // Get the input field
-        var input = document.getElementById("request_id");
-
-    // Execute a function when the user presses a key on the keyboard
-    input.addEventListener("keypress", function(event) {
-    // If the user presses the "Enter" key on the keyboard
-    if (event.key === "Enter") {
-        event.preventDefault();
-        alert("Enter erfoglreich");
-        document.getElementById("button1").click();
-  }
-});
 //        function init() {
 //            $.post('/init', function(response) {
 //                alert(response.message);
