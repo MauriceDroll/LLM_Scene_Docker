@@ -20,6 +20,16 @@ class MainLLM:
   #def __init__(self,sceneDescriptionUnsorted):
   #  self.sceneDescriptionUnsorted = sceneDescriptionUnsorted
   #  pass
+  
+  def combinePrompt():
+    # get User Question -> Flask (parameter)
+    # get Scene Description
+    # combine both
+    
+    # call the LLM
+    
+    # return result
+    pass
    
   def startLLM(prompt):
     #prompt = f'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin: 1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt?: {AnswerFormat.schema_json()} :\n'
@@ -59,7 +69,17 @@ class MainLLM:
 
     print("dict_response_object_pos", PostProcessing.getWantedPositon(dict_response)) 
 
+    
+    
+  def createAnswerForUser(objects):
+    for i in objects:
+      llm_input="Please formulate a sentence that the following objects are packed into a shipping box:" + str(i) + ""
+
+    return OllamaInteraction.getObjectFromScene('mistral','assistant', llm_input)
       
+
+        
+
 
 
 
