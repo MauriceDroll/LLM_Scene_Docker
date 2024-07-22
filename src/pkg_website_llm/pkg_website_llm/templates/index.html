@@ -10,18 +10,56 @@
     <link rel="stylesheet" href="/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates/style.css"> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="static/style_chatbot.css">
+
 </head>
+<section class="layout">
+    <div class="header">
+        <h1 style="color: white">AIP Webseite</h1>
+    </div>
+
+    <div class="main">
+        <div class="chat-container" style="color: white">
+            <div class="chat-box" id="chat-box">
+                <div class="message bot-message">Hallo! Wie kann ich Ihnen helfen?</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ihre Nachricht...">
+                <button id="send-btn">Senden</button>
+            </div>
+        </div>
+    
+    
+        <div class="picture-container" style="color: white">
+            <h2 style="color: white" >Image of Box Content</h2>
+            <img id="image" src="/static/images/Hintergrund.png" alt="ROS2 Image" width="640" height="480">
+            <script src="/static/script.js"></script>
+        </div>
+    </div>
+    <div class="footer">
+        <h3 style="color: white">Forschung und Entwicklungsprojekt 2</h3>
+        <h3 style="color: white">Von Raphael Aberle, Andreas Schmitt, Leo Schäfer, Maurice Droll und Eshan Savla </h1>
+
+
+
+    </div>
+  </section>
+  
 <body style="background-image: url('/static/images/Hintergrund.png');">
-    <h1 style="text-align: center; color: white">AIP Webseite</h1>
-    <h2 style="text-align: center; color: white">Bitte stellen Sie eine Anfrage:</h2>
-    <div class="container" style="text-align: center; color: white" >
+
+
+
+
+    <!-- <div class="container" style=" color: white" >
        
         <form>
             <label for="fname">Please Insert Your Request here:</label>
             <input type="text" id="request_id" name="request_name"><br><br>
           </form> 
           <button id="button1" onclick="buttonClicked()">Absenden</button>
-    </div>
+    </div> -->
+
+
 
     <script>
         function buttonClicked(request) {
