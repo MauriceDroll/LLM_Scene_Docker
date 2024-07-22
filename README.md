@@ -22,6 +22,9 @@ python3 MainLLM.py
 
 ros2 run pkg_website_llm website_llm 
 
+![grafik](https://github.com/user-attachments/assets/576399b9-9e6e-4e6c-a981-a111ccab70f3)
+
+
 ## How to request the User Input
 
 1. Connect to Docker
