@@ -1,6 +1,7 @@
-document.getElementById('send-btn').addEventListener('click', function() {
-    var userInput = document.getElementById('user-input').value;
-    if (userInput.trim() !== '') {
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('send-btn').addEventListener('click', function() {
+        var userInput = document.getElementById('user-input').value;
+        if (userInput.trim() !== '') {
         addMessage(userInput, 'user');
         document.getElementById('user-input').value = '';
         
@@ -9,7 +10,7 @@ document.getElementById('send-btn').addEventListener('click', function() {
             addMessage('LLM:Das ist eine Beispielantwort.LLM:Das ist eine Beispielantwort.LLM:Das ist eine Beispielantwort.LLM:Das ist eine Beispielantwort.LLM:Das ist eine Beispielantwort.LLM:Das ist eine Beispielantwort.', 'bot');
         }, 1000);
     }
-});
+})});
 
 function addMessage(text, sender) {
     var message = document.createElement('div');
@@ -20,3 +21,8 @@ function addMessage(text, sender) {
     chatBox.appendChild(message);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+
+// to do :
+
+// timer für Reload vom Bild!
