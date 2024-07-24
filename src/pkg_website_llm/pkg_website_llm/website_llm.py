@@ -27,14 +27,29 @@ def index():
 
 @app.route('/button_click', methods=['POST'])
 def button_click():
-    print("Anfrage (von webseite_llm): ", request.form['request'])
-    UserInput.setUserInput(request.form['request'])
-
+    
+    data = request.json
+    user_input = data.get('user_input', '')
+    print(f"Anfrage (von webseite_llm): {user_input}")
+    
+    UserInput.setUserInput(user_input)
+    
     if hasattr(None,'server'):
         server.shutdown_node()
     else:
         server = UserInputService()
         rclpy.spin(server)
+    
+
+    return jsonify({"message": "Button was clicked!", "received": "LLM TEST OUTPUT"})
+
+
+    #print("Anfrage (von webseite_llm): ", request.form['request'])
+    print("HI")
+    print("Anfrage (von webseite_llm): ", request.form['user-input'])
+    #UserInput.setUserInput(request.form['request'])
+
+
     return jsonify({"message": "Request was sent to LLM!"})
 
 def main():

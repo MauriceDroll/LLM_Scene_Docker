@@ -11,6 +11,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="static/style_chatbot.css">
+    <script src="/static/script.js"></script>
 
 </head>
 <section class="layout">
@@ -19,21 +20,21 @@
     </div>
 
     <div class="main">
+        <div class="picture-container" style="color: white">
+            <h2 style="color: white" >Image of Box Content</h2>
+            <img id="image" src="/static/images/Hintergrund.png" alt="ROS2 Image" width="640" height="480">
+
+        </div>
+
         <div class="chat-container" style="color: white">
             <div class="chat-box" id="chat-box">
                 <div class="message bot-message">Hallo! Wie kann ich Ihnen helfen?</div>
             </div>
             <div class="input-container">
                 <input type="text" id="user-input" placeholder="Ihre Nachricht...">
-                <button id="send-btn">Senden</button>
+                <button id="send-btn"> Senden_Absenden</button>
+                <!-- onclick="buttonClick()" -->
             </div>
-        </div>
-    
-    
-        <div class="picture-container" style="color: white">
-            <h2 style="color: white" >Image of Box Content</h2>
-            <img id="image" src="/static/images/Hintergrund.png" alt="ROS2 Image" width="640" height="480">
-            <script src="/static/script.js"></script>
         </div>
     </div>
     <div class="footer">

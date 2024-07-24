@@ -9,18 +9,23 @@ class LLMActionClient(Node):
 
     def __init__(self):
         super().__init__('llm_action_client')
-        self._action_client = ActionClient(self, LLM, 'website_llm_client')
+        self._action_client = ActionClient(self, LLM, 'llm_action_server')
+        print("Action Client initialized")
 
     def send_goal(self, user_input):
+        print("Beginn send_goal")
+        print("User Input: ", user_input)
         request_msg = LLM.Goal()
         request_msg.userinput = str(user_input)
 
         self._action_client.wait_for_server()
-
+        print("Server gefunden")
         self._send_goal_future = self._action_client.send_goal_async(request_msg)
-        
+        print("Ziel gesendet")
+
         self._send_goal_future.add_done_callback(self.goal_response_callback)
-        
+        print("Ende send_goal")
+
     
     def goal_response_callback(self, future):
         
@@ -46,8 +51,8 @@ def main(args=None):
 
     action_client = LLMActionClient()
 
-    future = action_client.send_goal(10)
-
+    future = action_client.send_goal("test")
+    print("Goal sent")
     rclpy.spin_until_future_complete(action_client, future)
 
 

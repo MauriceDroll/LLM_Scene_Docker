@@ -69,6 +69,7 @@ class MainLLM:
 
     print("dict_response_object_pos", PostProcessing.getWantedPositon(dict_response)) 
 
+    return dict_response
     
     
   def createAnswerForUser(objects):

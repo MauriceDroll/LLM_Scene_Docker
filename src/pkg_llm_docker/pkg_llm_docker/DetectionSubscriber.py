@@ -20,14 +20,14 @@ class DetectionSubscriber(Node):
 
     def listener_callback(self, msg):
         #self.get_logger().info('I heard: "%s"' % msg.detections)
-        print("Messsage kam an")
+        print("Message kam an")
 
         detections = []
         for detection in msg.detections:
             entry = Detection(detection.class_id, detection.class_name, detection.probability, detection.center, detection.bounding_box)
             detections.append(entry)
  
-        prompt = PreProcessing.formatPrompt(detections)
+        prompt = PreProcessing.formatPrompt(detections, "")
         MainLLM.startLLM(prompt)
 
         pass    

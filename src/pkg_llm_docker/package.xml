@@ -13,6 +13,7 @@
   <test_depend>python3-pytest</test_depend>
   <test_depend>pydantic</test_depend>
   <test_depend>pytest</test_depend>
+  <exec_depend>pkg_website_llm</exec_depend>
   <depend>llm_interfaces</depend>  
 
   <export>
