@@ -36,8 +36,11 @@ class LLMActionServer(Node):
         self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
         goal_handle.publish_feedback(feedback_msg)
         
-        result_dict = MainLLM.startLLM(prompt)
+        #result_dict = MainLLM.startLLM(prompt)
+        
+        result_dict = "Gemockte Antwort des LLM"
         self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
+        self.get_logger().info('LLM was started')
         goal_handle.publish_feedback(feedback_msg)
         goal_handle.succeed()
 

@@ -43,8 +43,12 @@ class LLMActionClient(Node):
 
     def get_result_callback(self, future):
         result = future.result().result
-        self.get_logger().info('Result: {0}'.format(result.sequence))
+        self.get_logger().info('Result: {0}'.format(result.llmoutput))
         rclpy.shutdown()
+    
+    def feedback_callback(self, feedback_msg):
+        feedback = feedback_msg.feedback
+        self.get_logger().info('Received feedback: {0}'.format(feedback.progress))
 
 def main(args=None):
     rclpy.init(args=args)
@@ -52,8 +56,15 @@ def main(args=None):
     action_client = LLMActionClient()
 
     future = action_client.send_goal("test")
+    
+    # if future is None:
+    #     action_client.get_logger().error("Failed to create future. The future object is None.")
+    #     action_client.get_logger().error("Exiting the program.")
+    #     return
+    
     print("Goal sent")
-    rclpy.spin_until_future_complete(action_client, future)
+    rclpy.spin(action_client)
+    #rclpy.spin_until_future_complete(action_client, future)
 
 
 if __name__ == '__main__':

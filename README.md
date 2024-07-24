@@ -41,10 +41,21 @@ Please not in the {}-brackets should be the ObjectDetections, so that the Websit
 
 
 
-## to do
+## How to start the Action Client and Server to send the user input to the LLM
 
-- fix the website background -> css somehow not visible
-- fix imports in website_llm.py since files are again not visible
+Client:
+1. Open New Terminal
+2. Connect to LLM_Docker
+3. colcon build && source install/setup.bash
+4. Navigate to the folder: cd src/pkg_website_llm/pkg_website_llm/
+5. python3 ActionClientToPreProcessing.py 
+
+Server:
+1. Open New Terminal
+2. Connect to LLM_Docker
+3. colcon build && source install/setup.bash
+4. Navigate to the folder: cd /src/pkg_llm_docker/pkg_llm_docker
+5. python3 LLM_Action_Server.py 
 
 
 
