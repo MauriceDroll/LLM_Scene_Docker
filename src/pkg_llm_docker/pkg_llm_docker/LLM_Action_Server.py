@@ -31,14 +31,18 @@ class LLMActionServer(Node):
         feedback_msg.progress = 0
         goal_handle.publish_feedback(feedback_msg)
         
-        prompt = PreProcessing.formatPrompt("",user_input)
+        # Create Prompt for the LLM
+        prompt = PreProcessing.formatPrompt(self,"",user_input)
+        self.get_logger().info('Prompt: {0}'.format(prompt))
+        
+        # Feedback 
         feedback_msg.progress = 50
         self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
         goal_handle.publish_feedback(feedback_msg)
         
-        #result_dict = MainLLM.startLLM(prompt)
+        result_dict = MainLLM.startLLM(prompt)
         
-        result_dict = "Gemockte Antwort des LLM"
+        #result_dict = "Gemockte Antwort des LLM"
         self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
         self.get_logger().info('LLM was started')
         goal_handle.publish_feedback(feedback_msg)

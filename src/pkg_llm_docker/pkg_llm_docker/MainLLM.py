@@ -47,6 +47,8 @@ class MainLLM:
     while True:
       try:
         response_JSON_Wischblatt_Assistant= OllamaInteraction.getObjectFromScene('mistral','assistant', prompt)
+        print(response_JSON_Wischblatt_Assistant)
+        print("-----")
         dict_response = PostProcessing.formatToDict(response_JSON_Wischblatt_Assistant)
         print("-----")
         print("response_JSON_Wischblatt_Assistant", response_JSON_Wischblatt_Assistant)

@@ -55,7 +55,7 @@ def main(args=None):
 
     action_client = LLMActionClient()
 
-    future = action_client.send_goal("test")
+    future = action_client.send_goal("Wo befindet sich das Box_Wischblatt?")
     
     # if future is None:
     #     action_client.get_logger().error("Failed to create future. The future object is None.")
