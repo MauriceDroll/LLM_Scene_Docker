@@ -11,9 +11,15 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
+
+set(DEPENDENCIES
+  sensor_msgs
+  )
+
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SolutionImage.srv"
   "action/LLM.action"
+  DEPENDENCIES ${DEPENDENCIES}
 )
 
 ament_export_dependencies(rosidl_default_runtime)

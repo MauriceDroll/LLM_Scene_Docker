@@ -1,0 +1,3 @@
+[console_scripts]
+website_llm = pkg_website_llm.website_llm:main
+
