@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function submitFormOnEnter(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('send-btn').click();
+    }
+}
+
 
 function addMessage(text, sender) {
     var message = document.createElement('div');

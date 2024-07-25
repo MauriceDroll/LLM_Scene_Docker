@@ -55,6 +55,7 @@ class LLMActionServer(Node):
 
 
 def main(args=None):
+    print("LLM Action Server MAIN")
     rclpy.init(args=args)
 
     fibonacci_action_server = LLMActionServer()

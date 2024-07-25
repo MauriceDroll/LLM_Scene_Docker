@@ -6,6 +6,7 @@ from rclpy.node import Node
 from UserInput import UserInput
 from UserInputServiceSender import UserInputService 
 import UserInputServiceSender
+from ActionClientToPreProcessing import LLMActionClient
 
 import os
 
@@ -34,23 +35,31 @@ def button_click():
     
     UserInput.setUserInput(user_input)
     
+    if not rclpy.ok():
+        rclpy.init(args=None)
+    
+    # This is to transport the user input to the behavior tree
+    
+    # if hasattr(None,'server'):
+    #     server.shutdown_node()
+    # else:
+    #     server = UserInputService()
+    #     rclpy.spin(server)
+    
+    # This is to call the LLM Aciton server directly
+    
     if hasattr(None,'server'):
         server.shutdown_node()
     else:
-        server = UserInputService()
-        rclpy.spin(server)
+        server = LLMActionClient()
+        future = server.send_goal(user_input)
+        result_llm = server.get_result_callback(future)
+        #rclpy.spin(server)
+    
     
 
-    return jsonify({"message": "Button was clicked!", "received": "LLM TEST OUTPUT"})
+    return jsonify({"message": "Button was clicked!", "received": result_llm})
 
-
-    #print("Anfrage (von webseite_llm): ", request.form['request'])
-    print("HI")
-    print("Anfrage (von webseite_llm): ", request.form['user-input'])
-    #UserInput.setUserInput(request.form['request'])
-
-
-    return jsonify({"message": "Request was sent to LLM!"})
 
 def main():
     print('Hi from LLM_Website. It is starting up.')
