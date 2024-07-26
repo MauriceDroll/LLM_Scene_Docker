@@ -8,13 +8,14 @@ from threading import Timer
 class UserInputService(Node):
 
     def __init__(self):
-        rclpy.init(args=None)
+        #rclpy.init(args=None)
         super().__init__('UserInputServiceSender')
         self.srv = self.create_service(UserInteraction, 'user_interaction', self.userinput_callback)
 
         print("Node wurde initialisiert")
 
-    def userinput_callback(self, request, response):
+    def userinput_callback(self, request, response_old):
+        response = UserInteraction.Response()
         response.user_input = UserInput.getUserInput()
         #print(UserInput.userInput_str)
         print("Service wurde aufgerufen")

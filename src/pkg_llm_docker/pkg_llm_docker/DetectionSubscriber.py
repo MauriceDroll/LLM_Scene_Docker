@@ -21,14 +21,25 @@ class DetectionSubscriber(Node):
     def listener_callback(self, msg):
         #self.get_logger().info('I heard: "%s"' % msg.detections)
         print("Message kam an")
+        
+        file_path = "../../Detections_Class_Name.txt"
+
+        with open(file_path, 'w') as f:
+            pass  # Nichts schreiben, um die Datei zu leeren
+
+        f = open(file_path, "a")
 
         detections = []
         for detection in msg.detections:
             entry = Detection(detection.class_id, detection.class_name, detection.probability, detection.center, detection.bounding_box)
             detections.append(entry)
+            print(detection.class_name)
+            f.write(detection.class_name + '\n')
+            print("zeile geschrieben")
  
-        prompt = PreProcessing.formatPrompt(detections, "")
-        MainLLM.startLLM(prompt)
+        f.close()
+        #prompt = PreProcessing.formatPrompt(detections, "")
+        #MainLLM.startLLM(prompt)
 
         pass    
 

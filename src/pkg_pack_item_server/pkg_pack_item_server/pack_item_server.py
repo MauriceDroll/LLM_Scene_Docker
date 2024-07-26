@@ -10,8 +10,18 @@ class PackItemsService(Node):
         self.get_logger().info('Service server is ready.')
 
     def pack_items_callback(self, request, response):
+        #open and read the file after the appending:
+        file_path = "../../Detections_Class_Name.txt"
+        #f = open(file_path, "r")
 
-        response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
+        list= []
+        with open(file_path, 'r') as f:
+            for line in f:
+                print(line.strip()) 
+                list.append(str(line.strip()))
+
+        response.objects_to_pick = list
+        #response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
         return response
 
 def main(args=None):

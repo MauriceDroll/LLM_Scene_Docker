@@ -44,7 +44,7 @@ RUN mkdir -p /home/$USER/ros_ws/src
 WORKDIR /home/$USER/ros_ws
 RUN colcon build --symlink-install
 
-RUN git clone -b devel https://github.com/eshan-savla/object_detector_tensorflow.git
+RUN git clone -b humble https://github.com/eshan-savla/object_detector_tensorflow.git
 RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
     rm -rf ./object_detector_tensorflow
     

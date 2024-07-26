@@ -40,26 +40,31 @@ def button_click():
     
     # This is to transport the user input to the behavior tree
     
+    
+    if hasattr(None,'server'):
+         server.shutdown_node()
+    else:
+         server = UserInputService()
+         server.userinput_callback("","")
+         rclpy.spin(server)
+         rclpy.shutdown()
+         server.shutdown_node()
+         #rclpy.spin(server)
+    
+    # This is to call the LLM Action server directly
+    
     # if hasattr(None,'server'):
     #     server.shutdown_node()
     # else:
-    #     server = UserInputService()
-    #     rclpy.spin(server)
-    
-    # This is to call the LLM Aciton server directly
-    
-    if hasattr(None,'server'):
-        server.shutdown_node()
-    else:
-        server = LLMActionClient()
-        future = server.send_goal(user_input)
-        result_llm = server.get_result_callback(future)
-        #rclpy.spin(server)
+    #     server = LLMActionClient()
+    #     future = server.send_goal(user_input)
+    #     result_llm = server.get_result_callback(future)
+    #     #rclpy.spin(server)
     
     
 
-    return jsonify({"message": "Button was clicked!", "received": result_llm})
-
+    #return jsonify({"message": "Button was clicked!", "received": result_llm})
+    return jsonify({"message": "Button was clicked!", "received": user_input})
 
 def main():
     print('Hi from LLM_Website. It is starting up.')
