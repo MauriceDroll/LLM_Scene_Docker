@@ -2,6 +2,8 @@ import rclpy
 from rclpy.node import Node
 from llm_interfaces.srv import SceneInterpretation
 
+from SelectedItemsToPack import SelectedItems
+
 class PackItemsService(Node):
 
     def __init__(self):
@@ -10,8 +12,14 @@ class PackItemsService(Node):
         self.get_logger().info('Service server is ready.')
 
     def pack_items_callback(self, request, response):
+        
+        # Standard list to pack 
+        response.objects_to_pick = SelectedItems.getStandardConfig()
+        # response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
+        
+        # Custom list to pack
+        # response.objects_to_pick = SelectedItems.getPackList()
 
-        response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
         return response
 
 def main(args=None):
