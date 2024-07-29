@@ -69,3 +69,8 @@ ros2 run pkg_pack_item_server pack_item_server
 3. Result is hard coded:
 
 ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
+
+
+## How to start the action server of the LLM
+
+ros2 action send_goal /llm_action_server llm_action_interfaces/action/LLM "{userinput: "Box_Wischblatt"}"
