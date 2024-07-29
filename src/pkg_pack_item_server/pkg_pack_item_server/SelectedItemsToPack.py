@@ -1,5 +1,5 @@
 class SelectedItems:
-    selected_items_list = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
+    selected_items_list = []
     
     def getPackList():
         return SelectedItems.selected_items_list
