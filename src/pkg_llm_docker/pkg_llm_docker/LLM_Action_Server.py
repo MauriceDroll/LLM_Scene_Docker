@@ -99,15 +99,10 @@ def main(args=None):
 
     action_server.destroy()
     action_server.get_logger().info('Action Server beendet')
-    #rclpy.shutdown()
-    #rclpy.spin_once(fibonacci_action_server, timeout_sec=35.0)
+
 
     action_server.get_logger().info('ACTION beendet')
     
-    
-
-    
-   #rclpy.shutdown()
     action_server.get_logger().info('Nachm Shutdown von ACTION')
 
 
