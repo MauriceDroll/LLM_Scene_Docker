@@ -43,15 +43,19 @@ class MainLLM:
       #   ])
 
     start = time.time()
+    response_JSON_Wischblatt_Assistant= OllamaInteraction.getGeneratedObjectFromScene(prompt)
+    
+    
+    dict_response = PostProcessing.formatToDict(response_JSON_Wischblatt_Assistant)
 
     while True:
       try:
-        response_JSON_Wischblatt_Assistant= OllamaInteraction.getObjectFromScene('mistral-nemo','assistant', prompt)
-        print(response_JSON_Wischblatt_Assistant)
+        #response_JSON_Wischblatt_Assistant= OllamaInteraction.getObjectFromScene('mistral-nemo','assistant', prompt)
+        #response_JSON_Wischblatt_Assistant= OllamaInteraction.getGeneratedObjectFromScene(prompt)
+        
+        #print(response_JSON_Wischblatt_Assistant)
         print("-----")
-        #dict_response = PostProcessing.formatToDict(response_JSON_Wischblatt_Assistant)
-        dict_response = response_JSON_Wischblatt_Assistant
-        print(response_JSON_Wischblatt_Assistant)
+        #dict_response = response_JSON_Wischblatt_Assistant
         print("-----")
         print("response_JSON_Wischblatt_Assistant", response_JSON_Wischblatt_Assistant)
         print("----")
@@ -66,12 +70,12 @@ class MainLLM:
     end = time.time()
 
     print("Dauer", PostProcessing.getUsedTime(start,end))
-    print("-Ab hier kommt die Response-")
+
 
     print("----")
-    
-    content_str = dict_response['message']['content']
-    print("Objekt", content_str)
+
+    #content_str = dict_response['message']['content']
+    #print("Objekt", content_str)
     #print("dict_response_object", PostProcessing.getWantedObject(dict_response))
 
     #print("dict_response_object_pos", PostProcessing.getWantedPositon(dict_response)) 
@@ -82,7 +86,7 @@ class MainLLM:
     
   def createAnswerForUser(objects):
     for i in objects:
-      llm_input="Please formulate a sentence that the following objects are packed into a shipping box:" + str(i) + ""
+      llm_input="Please formulate one sentence that the following objects are packed into a shipping box:" + str(i) + ""
 
     return OllamaInteraction.getObjectFromScene('mistral','assistant', llm_input)
       

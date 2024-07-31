@@ -14,4 +14,4 @@ class SelectedItems:
         SelectedItems.selected_items_list.clear()
         
     def getStandardConfig():
-        return ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
+        return ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein','Box_Messwertgeber']

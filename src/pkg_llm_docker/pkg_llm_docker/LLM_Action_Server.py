@@ -8,6 +8,13 @@ from PreProcessing import PreProcessing
 
 from MainLLM import MainLLM
 
+from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
+
+from pkg_pack_item_server.pack_item_server import PackItemsService
+
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+
 #from pkg_pack_item_server import SelectedItems
 from llm_action_interfaces.action import LLM
 
@@ -21,6 +28,7 @@ class LLMActionServer(Node):
             LLM,    
             'llm_action_server',
             self.execute_callback)
+        self.get_logger().info('Action Server is ready')
 
     def execute_callback(self, goal_handle):
         
@@ -40,28 +48,38 @@ class LLMActionServer(Node):
         
         feedback_msg.progress = 50
         self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
+        self.get_logger().info('LLM was started')
         goal_handle.publish_feedback(feedback_msg)
         
+        # Start the LLM
         result_dict = MainLLM.startLLM(prompt)
-        
-        # Start the LLM and send feedback after 100 %
-        #result_dict = "Gemockte Antwort des LLM"
-        self.get_logger().info('Feedback: {0}'.format(feedback_msg.progress))
-        self.get_logger().info('LLM was started')
         goal_handle.publish_feedback(feedback_msg)
         goal_handle.succeed()
 
         result = LLM.Result()
         result.llmoutput = str(result_dict)
         
-        # Set the result of the action as list
-        # pack_item_server cań send the files to packing algorithm
         
-        # for each class name in the result_dict
-        # first clear the list
-        # get class name from result_dict       
-        # SelectedItems.append(class name)
+        # Send the result to the website
+        SelectedItems.clearPackList()
+        for i in result_dict:
+            print("Result:", i)
+            SelectedItems.appendPackList(i)
         
+        
+        self.get_logger().info('Action sollte fertig sein!')
+     
+     
+        #######################
+        # PackServer #
+        #######################
+    
+        #rclpy.init(args=args)
+        pack_server = PackItemsService()
+        self.get_logger().info('PackItemsService Node erstellt!')
+        #rclpy.create_node(pack_server)
+        #rclpy.spin_once(pack_server, timeout_sec=5.0)
+        pack_server.spinNode()
 
         return result
 
@@ -70,9 +88,28 @@ def main(args=None):
     print("[LLM Action Server] MAIN")
     rclpy.init(args=args)
 
-    fibonacci_action_server = LLMActionServer()
+    action_server = LLMActionServer()
+    #rclpy.spin(action_server)
+    
+    executor = MultiThreadedExecutor()
+    action_server.get_logger().info('executor erstellt')
 
-    rclpy.spin(fibonacci_action_server)
+    rclpy.spin(action_server, executor=executor)
+    action_server.get_logger().info('Spin beginnt')
+
+    action_server.destroy()
+    action_server.get_logger().info('Action Server beendet')
+    #rclpy.shutdown()
+    #rclpy.spin_once(fibonacci_action_server, timeout_sec=35.0)
+
+    action_server.get_logger().info('ACTION beendet')
+    
+    
+
+    
+   #rclpy.shutdown()
+    action_server.get_logger().info('Nachm Shutdown von ACTION')
+
 
 
 if __name__ == '__main__':

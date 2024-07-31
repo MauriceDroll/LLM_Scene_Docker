@@ -35,14 +35,14 @@ class PreProcessing(Node):
         print("Der ausgelesene User Input ist: ", userInput)
         if userInput !="":
             #prompt += f'{userInput}: {AnswerFormat.schema_json()} :\n'
-            prompt += f'Wo befindet sich {userInput}? Answer the name and position in a short json object:\n'
+            prompt += f' Answer the name and position in a short json object. Wo befindet sich {userInput}?\n'
         else:
-            prompt += f'Wo befindet sich die Box mit dem Wischblatt? Answer the name and position in a short json object :\n'
+            prompt += f'Wo befindet sich die Box mit dem Wischblatt? Answer only with the name and position in a short json object :\n'
         
         
-        print("----")
-        print("prompt",prompt)
-        print("----")
+        #print("----")
+        #print("prompt",prompt)
+        #print("----")
         return prompt
     
     # Strings appenden
