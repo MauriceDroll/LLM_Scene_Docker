@@ -4,7 +4,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
+    background-color: #E7E7E4;
 }
 
 .layout {
@@ -53,8 +53,9 @@ body {
     margin-right: 30px;
     margin-left: 10px;
     width: 800px;
+    height: 590px;
     max-width: 100%;
-    background-color: #fff;
+    background-color: #eaeef7;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /* overflow: hidden; */
@@ -71,7 +72,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: #333;
+    color: #222121;
 }
 
 .message {
@@ -82,12 +83,13 @@ body {
 }
 
 .bot-message {
-    background-color: #e9e9eb;
+    background-color: #2666c0;
     align-self: flex-start;
+    color: #fff;
 }
 
 .user-message {
-    background-color: #007bff;
+    background-color: #3884C7;
     color: #fff;
     align-self: flex-end;
 }
@@ -109,12 +111,12 @@ body {
 #send-btn {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #BFDAA7;
     color: #fff;
     border-radius: 20px;
     cursor: pointer;
 }
 
 #send-btn:hover {
-    background-color: #0056b3;
+    background-color: #799165;
 }

@@ -69,7 +69,6 @@ class LLMActionServer(Node):
         
         self.get_logger().info('Action sollte fertig sein!')
      
-     
         #######################
         # PackServer #
         #######################

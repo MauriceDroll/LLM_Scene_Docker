@@ -17,6 +17,7 @@ class LLMActionClient(Node):
 
     def send_goal(self, user_input):
         self.get_logger().info('ANFANG send goal')
+        
         print("User Input: ", user_input)
         request_msg = LLM.Goal()
         request_msg.userinput = str(user_input)
@@ -33,6 +34,7 @@ class LLMActionClient(Node):
 
     def goal_response_callback(self, future):
         goal_handle = future.result()
+        
         if not goal_handle.accepted:
             self.get_logger().info('LLM request rejected :(')
             return
@@ -40,13 +42,34 @@ class LLMActionClient(Node):
         self.get_logger().info('LLM request accepted :)')
         self._get_result_future = goal_handle.get_result_async()
         self._get_result_future.add_done_callback(self.get_result_callback)
+        
 
     def get_result_callback(self, future):
-#        result = future.result().result
-        result = future.result()
+#         result_man = LLM.Result()
+#         self.get_logger().info('TYPE: {0}'.format(type(future)))
 
-        self.get_logger().info('Result: {0}'.format(result.llmoutput))
+                
+#         result = future.result().result
+#         self._result = result.result  # Speichern des Resultats in der Instanzvariable
+#         self.get_logger().info('Result: {0}'.format(self._result))
+# #        result = future.result().result
+#         #result = future.result()
+
+#         self.get_logger().info('Result: {0}'.format(result.llmoutput))
+#         rclpy.shutdown()
+#         #return result.llmoutput
+        try:
+            result = future.llmoutput()
+            self.get_logger().info('TYPE: {0}'.format(type(result)))
+            self._result = result.llmoutput  # Speichern des Resultats in der Instanzvariable
+            self.get_logger().info('Result: {0}'.format(self._result))
+            self.get_logger().info('Result: {0}'.format(result.llmoutput))
+        except Exception as e:
+            self.get_logger().error('Exception in get_result_callback: {0}'.format(e))
+        
         rclpy.shutdown()
+        
+        
 
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
@@ -61,7 +84,7 @@ def main(args=None):
     action_client.get_logger().info('UserInput: {0}'.format(userInput)) 
     # userInput = "Wo befindet sich das Box_Wischblatt?"
 
-    future = action_client.send_goal(userInput)
+    action_client.send_goal(userInput)
 
     print("Goal sent")
     rclpy.spin(action_client)
