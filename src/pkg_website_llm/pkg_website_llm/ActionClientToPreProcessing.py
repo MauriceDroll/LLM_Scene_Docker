@@ -22,15 +22,15 @@ class LLMActionClient(Node):
         request_msg = LLM.Goal()
         request_msg.userinput = str(user_input)
 
-        self._action_client.wait_for_server()
+        self._action_client.wait_for_server(timeout_sec=10.0)
         print("Server gefunden")
         self._send_goal_future = self._action_client.send_goal_async(request_msg)
         print("Ziel gesendet")
         self.get_logger().info('ENDE send goal')
         
+        temp = self._send_goal_future.add_done_callback(self.goal_response_callback)
 
-        self._send_goal_future.add_done_callback(self.goal_response_callback)
-        print("Ende send_goal")
+        return temp
 
     def goal_response_callback(self, future):
         goal_handle = future.result()
@@ -59,13 +59,14 @@ class LLMActionClient(Node):
 #         rclpy.shutdown()
 #         #return result.llmoutput
         try:
-            result = future.llmoutput()
+            result = future.result().result
             self.get_logger().info('TYPE: {0}'.format(type(result)))
             self._result = result.llmoutput  # Speichern des Resultats in der Instanzvariable
             self.get_logger().info('Result: {0}'.format(self._result))
-            self.get_logger().info('Result: {0}'.format(result.llmoutput))
+            #self.get_logger().info('Result: {0}'.format(result.llmoutput))
         except Exception as e:
             self.get_logger().error('Exception in get_result_callback: {0}'.format(e))
+        
         
         rclpy.shutdown()
         
@@ -74,6 +75,9 @@ class LLMActionClient(Node):
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
         self.get_logger().info('Received feedback: {0}'.format(feedback.progress))
+        
+    def get_result(self):
+        return self._result
 
 def main(args=None):
     rclpy.init(args=args)  # Ensure that rclpy is initialized before creating a node

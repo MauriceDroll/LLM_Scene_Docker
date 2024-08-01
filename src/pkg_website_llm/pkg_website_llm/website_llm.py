@@ -53,12 +53,18 @@ def button_click():
     else:
         server = LLMActionClient()
         future = server.send_goal(user_input)
-        result_llm = server.get_result_callback(future)
-        #rclpy.spin(server)
-    
+        print("Datenobjekt Typ Future", type(future))
+
+        #rclpy.spin_until_future_complete(server, future)
+        #result_llm = server.get_result_callback(future)
+        rclpy.spin(server)
+
+        result = server.get_result()
+        print("Ergebnis:", result)
+        
     
 
-    return jsonify({"message": "Button was clicked!", "received": result_llm})
+    return jsonify({"message": "Button was clicked!", "received": result})
 
 
 def main():

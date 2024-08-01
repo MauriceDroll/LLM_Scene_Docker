@@ -22,7 +22,30 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            response_llm = data;
+
+            let response_llm = {
+                received: JSON.stringify(data.received)
+            };
+            
+            // Überprüfen, ob response_llm.received definiert und ein Array ist
+            if (response_llm.received && Array.isArray(response_llm.received)) {
+                let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.join(', ');
+                addMessage(formattedMessage, 'bot');
+            } 
+            else if (response_llm.received && !Array.isArray(response_llm.received)) {
+                let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.replace(/[\[\]\"',]/g,'')
+                alert(formattedMessage);
+                addMessage(formattedMessage, 'bot');
+
+            }
+            else {
+                addMessage('Diese Objekte werden gepackt: Keine Objekte', 'bot');
+                console.error('response_llm.received ist kein Array oder nicht definiert:', response_llm.received);
+            }
+
+            //response_llm = data;
+            //print_values = JSON.stringify(response_llm.received);
+            //addMessage('Diese Objekte werden gepackt: '+ print_values.join(', '), 'bot');
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -30,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Simulate bot response
         setTimeout(function() {
-            addMessage('LLM: Das ist eine Beispielantwort.', 'bot');
-            addMessage(JSON.stringify(response_llm.received), 'bot');
+            addMessage('Das LLM bearbeitet gerade ihre Anfrage!', 'bot');
+
         }, 1000);
     });
 });
