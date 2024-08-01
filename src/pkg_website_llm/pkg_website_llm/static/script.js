@@ -54,6 +54,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('approve-btn').addEventListener('click', function() {
+        data = "approve"
+
+        fetch('/button_approve', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+
+                   console.error('Error:', error);
+ })
+        .catch((error) => {
+        });
+        
+        // Simulate bot response
+        setTimeout(function() {
+            addMessage('Auswahl wurde bestätigt!', 'bot');
+
+        }, 1000);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('disapprove-btn').addEventListener('click', function() {
+        data = "disapprove"
+
+        fetch('/button_disapprove', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+
+                   console.error('Error:', error);
+ })
+        .catch((error) => {
+        });
+        
+        // Simulate bot response
+        setTimeout(function() {
+            addMessage('Auswahl wurde abgelehnt!', 'bot');
+
+        }, 1000);
+    });
+});
+
 function submitFormOnEnter(event) {
     if (event.key === 'Enter') {
         document.getElementById('send-btn').click();

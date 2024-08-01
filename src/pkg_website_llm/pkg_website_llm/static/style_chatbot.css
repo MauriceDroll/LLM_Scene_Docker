@@ -28,6 +28,12 @@ body {
     flex-grow: 1; /* Hauptinhalt wächst, um den Platz zu füllen */
 }
 
+.main_2nd_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1; /* Hauptinhalt wächst, um den Platz zu füllen */
+}
 .footer {
     background-color: #333;
     color: white;
@@ -75,6 +81,18 @@ body {
     color: #222121;
 }
 
+.consent-box{
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: right; /* Vertikale Zentrierung */
+    align-items: right; /* Horizontale Zentrierung */
+    gap: 10px;
+    color: #222121;
+}
+
 .message {
     padding: 10px 15px;
     border-radius: 20px;
@@ -109,6 +127,24 @@ body {
 }
 
 #send-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #BFDAA7;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#disapprove-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f34437;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#approve-btn {
     padding: 10px 20px;
     border: none;
     background-color: #BFDAA7;

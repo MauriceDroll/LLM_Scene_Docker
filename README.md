@@ -65,7 +65,7 @@ Server:
 1. Connect to Docker
 2. enter on the terminal:
 
-ros2 run pkg_pack_item_server pack_item_server
+ros2 run pkg_pack_item_server pack_item_server  
 
 3. Result is hard coded:
 

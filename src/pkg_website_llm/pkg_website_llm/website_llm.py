@@ -43,6 +43,7 @@ def button_click():
     # if hasattr(None,'server'):
     #     server.shutdown_node()
     # else:
+    #     #rclpy.init(args=None)
     #     server = UserInputService()
     #     rclpy.spin(server)
     
@@ -61,9 +62,25 @@ def button_click():
         result = server.get_result()
         print("Ergebnis:", result)
         
-    
 
     return jsonify({"message": "Button was clicked!", "received": result})
+
+@app.route('/button_approve', methods=['POST'])
+def button_approve():
+
+    UserInput.setApproval("Approved")
+    print("Meinung des Users:", UserInput.getApproval())
+
+
+    return jsonify({"message": "Approved by user!", "received": "Approval"})
+
+@app.route('/button_disapprove', methods=['POST'])
+def button_disapprove():
+
+    UserInput.setApproval("DISApproved")
+    print("Meinung des Users:", UserInput.getApproval())
+
+    return jsonify({"message": "Disapproved by user", "received": "Disapproval"})
 
 
 def main():
