@@ -55,8 +55,7 @@ def button_click():
         future = server.send_goal(user_input)
         print("Datenobjekt Typ Future", type(future))
 
-        #rclpy.spin_until_future_complete(server, future)
-        #result_llm = server.get_result_callback(future)
+
         rclpy.spin(server)
 
         result = server.get_result()

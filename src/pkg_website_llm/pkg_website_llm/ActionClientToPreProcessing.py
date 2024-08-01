@@ -45,25 +45,13 @@ class LLMActionClient(Node):
         
 
     def get_result_callback(self, future):
-#         result_man = LLM.Result()
-#         self.get_logger().info('TYPE: {0}'.format(type(future)))
 
-                
-#         result = future.result().result
-#         self._result = result.result  # Speichern des Resultats in der Instanzvariable
-#         self.get_logger().info('Result: {0}'.format(self._result))
-# #        result = future.result().result
-#         #result = future.result()
-
-#         self.get_logger().info('Result: {0}'.format(result.llmoutput))
-#         rclpy.shutdown()
-#         #return result.llmoutput
         try:
             result = future.result().result
             self.get_logger().info('TYPE: {0}'.format(type(result)))
-            self._result = result.llmoutput  # Speichern des Resultats in der Instanzvariable
+            self._result = result.llmoutput 
             self.get_logger().info('Result: {0}'.format(self._result))
-            #self.get_logger().info('Result: {0}'.format(result.llmoutput))
+
         except Exception as e:
             self.get_logger().error('Exception in get_result_callback: {0}'.format(e))
         
@@ -80,7 +68,7 @@ class LLMActionClient(Node):
         return self._result
 
 def main(args=None):
-    rclpy.init(args=args)  # Ensure that rclpy is initialized before creating a node
+    rclpy.init(args=args)  
     action_client = LLMActionClient()
 
     userInput = UserInput.getUserInput()
@@ -92,7 +80,6 @@ def main(args=None):
 
     print("Goal sent")
     rclpy.spin(action_client)
-    # rclpy.spin_until_future_complete(action_client, future)
 
 
 if __name__ == '__main__':
