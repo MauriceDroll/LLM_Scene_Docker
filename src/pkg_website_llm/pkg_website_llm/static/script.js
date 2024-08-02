@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('send-btn').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('send-btn').addEventListener('click', function () {
         var userInput = document.getElementById('user-input').value;
         response_llm = ""
 
@@ -19,35 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
 
-            let response_llm = {
-                received: JSON.stringify(data.received)
-            };
-            
-            // Überprüfen, ob response_llm.received definiert und ein Array ist
-            if (response_llm.received && Array.isArray(response_llm.received)) {
-                let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.join(', ');
-                addMessage(formattedMessage, 'bot');
-            } 
-            else if (response_llm.received && !Array.isArray(response_llm.received)) {
-                let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.replace(/[\[\]\"',]/g,'')
-                addMessage(formattedMessage, 'bot');
+                let response_llm = {
+                    received: JSON.stringify(data.received)
+                };
 
-            }
-            else {
-                addMessage('Diese Objekte werden gepackt: Keine Objekte', 'bot');
-                console.error('response_llm.received ist kein Array oder nicht definiert:', response_llm.received);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-        
+                // Überprüfen, ob response_llm.received definiert und ein Array ist
+                if (response_llm.received && Array.isArray(response_llm.received)) {
+                    let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.join(', ');
+                    addMessage(formattedMessage, 'bot');
+                }
+                else if (response_llm.received && !Array.isArray(response_llm.received)) {
+                    let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.replace(/[\[\]\"',]/g, '')
+                    addMessage(formattedMessage, 'bot');
+
+                }
+                else {
+                    addMessage('Diese Objekte werden gepackt: Keine Objekte', 'bot');
+                    console.error('response_llm.received ist kein Array oder nicht definiert:', response_llm.received);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
         // Simulate bot response
-        setTimeout(function() {
+        setTimeout(function () {
             addMessage('Das LLM bearbeitet gerade ihre Anfrage!', 'bot');
 
         }, 1000);
@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('approve-btn').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('approve-btn').addEventListener('click', function () {
         data = "approve"
 
         fetch('/button_approve', {
@@ -66,25 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: data
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
 
-                   console.error('Error:', error);
- })
-        .catch((error) => {
-        });
-        
+                console.error('Error:', error);
+            })
+            .catch((error) => {
+            });
+
         // Simulate bot response
-        setTimeout(function() {
+        setTimeout(function () {
             addMessage('Auswahl wurde bestätigt!', 'bot');
 
         }, 1000);
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('disapprove-btn').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('disapprove-btn').addEventListener('click', function () {
         data = "disapprove"
 
         fetch('/button_disapprove', {
@@ -94,22 +94,60 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: data
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
 
-                   console.error('Error:', error);
- })
-        .catch((error) => {
-        });
-        
+                console.error('Error:', error);
+            })
+            .catch((error) => {
+            });
+
         // Simulate bot response
-        setTimeout(function() {
+        setTimeout(function () {
             addMessage('Auswahl wurde abgelehnt!', 'bot');
 
         }, 1000);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Funktion, um die Daten vom Flask-Backend abzurufen
+    async function fetchData() {
+        try {
+            const response = await fetch('/get_data');
+            const data = await response.json();
+
+            list_object = [package_content,cylinder_ids,grasp_pose,place_pose]
+
+            document.getElementById("package_content").innerText = data["package_content"];
+            document.getElementById("cylinder_ids").innerText = data["cylinder_ids"];
+            document.getElementById("grasp_pose").innerText = data["grasp_pose"];
+            document.getElementById("place_pose").innerText = data["place_pose"];
+
+            // Aktualisiere die Tabellenzellen mit den abgerufenen Daten
+            //for (const key in data) {
+                //if (data.hasOwnProperty(key)) {
+                //    document.getElementById(key).innerText = data[key];
+                //}
+
+
+
+
+
+            //}
+        } catch (error) {
+            console.error('Fehler beim Abrufen der Daten:', error);
+        }
+    }
+
+    // Rufe fetchData alle 10 Sekunden auf
+    setInterval(fetchData, 10000);
+
+    // Initialer Datenabruf beim Laden der Seite
+    fetchData();
+});
+
 
 function submitFormOnEnter(event) {
     if (event.key === 'Enter') {

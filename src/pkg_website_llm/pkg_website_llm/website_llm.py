@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, jsonify
 import rclpy
 from rclpy.node import Node
 from UserInput import UserInput
+from WebsiteFeedbackData import WebsiteFeedbackData
 from UserInputServiceSender import UserInputService 
 import UserInputServiceSender
 from ActionClientToPreProcessing import LLMActionClient
@@ -81,6 +82,31 @@ def button_disapprove():
     print("Meinung des Users:", UserInput.getApproval())
 
     return jsonify({"message": "Disapproved by user", "received": "Disapproval"})
+
+@app.route('/get_data')
+def get_data():
+    # data = {
+    #     'package_content': 'New Package Sequence',
+    #     'cylinder_ids': 'New Cylinder ID',
+    #     'grasp_pose': 'New Grasp Pose',
+    #     'place_pose': 'New Place Pose'
+    # }
+    WebsiteFeedbackData.setPackage("Box_Wischblatt, Keilriemen_groß, Keilriemen_klein")
+    WebsiteFeedbackData.setCylinderIds("1 2")
+    WebsiteFeedbackData.setGraspPose("Grasp Pose")
+    WebsiteFeedbackData.setPlacePose("Place Pose")
+
+
+    
+    data = {
+        'package_content': WebsiteFeedbackData.getPackage(),
+        'cylinder_ids': WebsiteFeedbackData.getCylinderIds(),
+        'grasp_pose': WebsiteFeedbackData.getGraspPose(),
+        'place_pose': WebsiteFeedbackData.getPlacePose(),
+    }
+    print("DATEN WURDEN Abgerufen")
+    print(data)
+    return jsonify(data)
 
 
 def main():
