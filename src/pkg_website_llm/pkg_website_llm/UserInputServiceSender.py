@@ -15,6 +15,7 @@ class UserInputService(Node):
         print("Node wurde initialisiert")
 
     def userinput_callback(self, request, response):
+        
         response.user_input = UserInput.getUserInput()
         #print(UserInput.userInput_str)
         print("Service wurde aufgerufen")

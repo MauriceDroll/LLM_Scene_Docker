@@ -4,6 +4,8 @@ from llm_interfaces.srv import SceneInterpretation
 
 from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
 
+from pkg_website_llm.UserInput import UserInput
+
 class PackItemsService(Node):
 
     def __init__(self):
@@ -18,13 +20,18 @@ class PackItemsService(Node):
         #response.objects_to_pick = SelectedItems.getStandardConfig()
 
         response.objects_to_pick = SelectedItems.getPackList()
+        print(response.objects_to_pick)
         
         # Custom list to pack
         # response.objects_to_pick = SelectedItems.getPackList()
             
         self.get_logger().info('Service has been called.') 
-
-        return response
+        
+        if UserInput.getApproval() == True:
+            self.get_logger().info('Return will be send!')
+            return response
+        
+        #return response
 
     
     def stop_spin(self):
@@ -43,6 +50,7 @@ class PackItemsService(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = PackItemsService()
+    node.get_logger().info('Node erstellt!')
     rclpy.spin(node)  
 
 if __name__ == '__main__':

@@ -20,6 +20,7 @@ find_package(rosidl_default_generators REQUIRED)
 set(DEPENDENCIES 
   "sensor_msgs"
   "object_detector_tensorflow_interfaces"
+  "geometry_msgs"
 )
 #  "object_detector_tensorflow_interfaces"
 
@@ -28,6 +29,10 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SceneInterpretation.srv"
   "srv/UserInteraction.srv"
   "srv/PackItems.srv"
+  "srv/WebsiteFeedback.srv"
+  "msg/Package.msg"
+  "msg/PackageSequence.msg"
+  "msg/CylinderCombination.msg"
   DEPENDENCIES ${DEPENDENCIES} # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
 

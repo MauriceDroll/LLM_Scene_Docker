@@ -1,6 +1,6 @@
 class UserInput:
     userInput_str = 'No Input'
-    approval_str = 'No Approval'
+    approval_bool = False
     
     def getUserInput():
         return UserInput.userInput_str
@@ -9,7 +9,7 @@ class UserInput:
         UserInput.userInput_str = input
         
     def getApproval():
-        return UserInput.approval_str
+        return UserInput.approval_bool
     
     def setApproval(approval):
-        UserInput.approval_str = approval
+        UserInput.approval_bool = approval

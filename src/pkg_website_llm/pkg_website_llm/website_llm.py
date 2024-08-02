@@ -40,21 +40,21 @@ def button_click():
     
     # This is to transport the user input to the behavior tree
     
-    # if hasattr(None,'server'):
-    #     server.shutdown_node()
+    # if hasattr(None,'server_website_only'):
+    #     server_website_only.shutdown_node()
     # else:
     #     #rclpy.init(args=None)
-    #     server = UserInputService()
-    #     rclpy.spin(server)
+    #     server_website_only = UserInputService()
+    #     rclpy.spin(server_website_only)
     
-    # This is to call the LLM Aciton server directly
+    # This is to call the LLM Action server directly
     
     if hasattr(None,'server'):
         server.shutdown_node()
     else:
         server = LLMActionClient()
         future = server.send_goal(user_input)
-        print("Datenobjekt Typ Future", type(future))
+        #print("Datenobjekt Typ Future", type(future))
 
 
         rclpy.spin(server)
@@ -68,7 +68,7 @@ def button_click():
 @app.route('/button_approve', methods=['POST'])
 def button_approve():
 
-    UserInput.setApproval("Approved")
+    UserInput.setApproval(True)
     print("Meinung des Users:", UserInput.getApproval())
 
 
@@ -77,7 +77,7 @@ def button_approve():
 @app.route('/button_disapprove', methods=['POST'])
 def button_disapprove():
 
-    UserInput.setApproval("DISApproved")
+    UserInput.setApproval(False)
     print("Meinung des Users:", UserInput.getApproval())
 
     return jsonify({"message": "Disapproved by user", "received": "Disapproval"})
