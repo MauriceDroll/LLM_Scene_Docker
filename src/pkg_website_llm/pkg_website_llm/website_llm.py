@@ -103,6 +103,7 @@ def get_data():
         'cylinder_ids': WebsiteFeedbackData.getCylinderIds(),
         'grasp_pose': WebsiteFeedbackData.getGraspPose(),
         'place_pose': WebsiteFeedbackData.getPlacePose(),
+        'picture': WebsiteFeedbackData.getImagePath(),
     }
     print("DATEN WURDEN Abgerufen")
     print(data)

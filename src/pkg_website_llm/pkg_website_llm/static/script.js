@@ -194,3 +194,33 @@ function updateTable(data) {
 
     }
 }
+
+// Funktion, um das Bild zu aktualisieren
+function updateImage() {
+    async function fetchData() {
+        try {
+            const response = await fetch('/get_data');
+            const data = await response.json();
+
+
+            var imageElement = document.getElementById('image');
+            var currentSrc = data.picture;
+
+            // Logik, um die neue Bildquelle festzulegen
+            // Hier ein einfaches Beispiel, das den Query-Parameter ändert, um den Cache zu umgehen
+            var newSrc = currentSrc.split('?')[0] + '?' + new Date().getTime();
+
+            imageElement.src = newSrc;
+
+
+            //}
+        } catch (error) {
+            console.error('Fehler beim Abrufen der Daten:', error);
+        }
+
+
+}
+}
+
+// Aktualisiere das Bild alle 10 Sekunden
+setInterval(updateImage, 10000); // 10000 ms = 10 Sekunden
