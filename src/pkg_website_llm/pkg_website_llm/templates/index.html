@@ -44,7 +44,19 @@
     </div>
     <div class="main_2nd_row">
             <div class="feedback-container" style="color: white">
-                <table>
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>PackageSequence</th>
+                            <th>Cylinder_ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamische Inhalte werden hier eingefügt -->
+                    </tbody>
+                </table>
+                
+                <!-- <table>
                     <tr>
                         <td>PackageSequence</td>
                         <td id="package_content"> PACKAGE_INHALT</td>
@@ -59,9 +71,9 @@
                     </tr>
                     <tr>
                         <td>Place_Pose</td>
-                        <td id="place_pose">Place_Pose</td>
+                        <td id="grasp_pose">Place_Pose</td>
                     </tr>
-                </table>
+                </table> -->
             </div>
             <div class="consent-box" id="consent_user">
                 <button id="disapprove-btn"> Ablehnen</button>

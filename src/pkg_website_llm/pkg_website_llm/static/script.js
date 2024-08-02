@@ -118,20 +118,21 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch('/get_data');
             const data = await response.json();
 
-            list_object = [package_content,cylinder_ids,grasp_pose,place_pose]
+            //list_object = [package_content, cylinder_ids, grasp_pose, place_pose]
 
-            document.getElementById("package_content").innerText = data["package_content"];
-            document.getElementById("cylinder_ids").innerText = data["cylinder_ids"];
-            document.getElementById("grasp_pose").innerText = data["grasp_pose"];
-            document.getElementById("place_pose").innerText = data["place_pose"];
+            //document.getElementById("package_content").innerText = data["package_content"];
+            //document.getElementById("cylinder_ids").innerText = data["cylinder_ids"];
+
+            //document.getElementById("grasp_pose").innerText = data["grasp_pose"];
+            //document.getElementById("place_pose").innerText = data["place_pose"];
 
             // Aktualisiere die Tabellenzellen mit den abgerufenen Daten
             //for (const key in data) {
-                //if (data.hasOwnProperty(key)) {
-                //    document.getElementById(key).innerText = data[key];
-                //}
+            //if (data.hasOwnProperty(key)) {
+            //    document.getElementById(key).innerText = data[key];
+            //}
 
-
+            updateTable(data);
 
 
 
@@ -166,7 +167,30 @@ function addMessage(text, sender) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+// Funktion, um die Tabelle mit den abgerufenen Daten zu aktualisieren
+function updateTable(data) {
+    const tbody = document.querySelector('#myTable tbody');
+    tbody.innerHTML = ''; // Lösche vorhandene Tabellenzeilen
 
-// to do :
+    const itemList = data.package_content.split(', ');
+    const additionalContent = data.cylinder_ids.split(' ');
 
-// timer für Reload vom Bild!
+
+    for (i in itemList) {
+        //alert(itemList[i])
+        const row = document.createElement('tr');
+        tbody.appendChild(row);
+        const cellKey = document.createElement('tr');
+        cellKey.innerText = itemList[i];
+        row.appendChild(cellKey);
+
+        // Zweite Spalte
+        const cellValue = document.createElement('td');
+        if (additionalContent[i] == undefined) {
+            additionalContent[i] = ""
+        }
+        cellValue.innerText = additionalContent[i];
+        row.appendChild(cellValue);
+
+    }
+}
