@@ -16,7 +16,7 @@ class PostProcessing:
                 return content['name']
             
             elif (type(content) == str) :
-                search_objects = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein','Box_Messwertgeber']
+                search_objects = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein','Box_Messwertgeber','Box\_Gluehlampe', 'Box\_Wischblatt','Keilriemen\_gross', 'Box\_Bremsbacke', 'Keilriemen\_klein','Box\_Messwertgeber']
 
                 # Ergebnisliste der gefundenen Strings
                 found_objects = []

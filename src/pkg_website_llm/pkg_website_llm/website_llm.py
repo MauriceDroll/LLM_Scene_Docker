@@ -105,8 +105,8 @@ def get_data():
         'place_pose': WebsiteFeedbackData.getPlacePose(),
         'picture': WebsiteFeedbackData.getImagePath(),
     }
-    print("DATEN WURDEN Abgerufen")
-    print(data)
+    #print("DATEN WURDEN Abgerufen")
+    #print(data)
     return jsonify(data)
 
 
