@@ -77,19 +77,8 @@ class LLMActionServer(Node):
             SelectedItems.appendPackList(i)
             print("SelectedItems:", SelectedItems.getPackList())
         
-        self.get_logger().info('Action sollte fertig sein!')
+        self.get_logger().info('Action beendet!')
      
-        #######################
-        # PackServer #
-        #######################
-
-        
-
-        # pack_server = PackItemsService()
-        # self.get_logger().info('PackItemsService Node erstellt!')
-
-        # pack_server.spinNode()
-
         return result
 
 

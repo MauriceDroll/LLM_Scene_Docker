@@ -17,15 +17,15 @@ class PreProcessing(Node):
         prompt = 'Es folgt eine Scenenbeschreibung.'
         
         
-        classname = ["Box_Wischblatt", "Keilriemen_gross", "Box_Messwertgeber"]
-        center_x = [543.5, 629.5, 800.0]
-        center_y = [608.5, 405.5, 524.0]
-        center_z=  [0.0, 0.0, 0.0]
+        classname = ["Box_Wischblatt", "Keilriemen_gross", "Box_Messwertgeber", "Keilriemen_klein"]
+        center_x = [543.5, 629.5, 800.0, 500.4]
+        center_y = [608.5, 405.5, 524.0, 320.1]
+        center_z=  [0.01, 0.001, 0.002, 0.01]
         
         #sceneDescription = fakeOdtf.detection_string
         #sceneDescription =  ast.literal_eval(fakeOdtf.data)
         #for i in range(0, len(sceneDescription)):
-        for i in range(0,3):
+        for i in range(0,4):
             #self.get_logger().info(sceneDescription[i].class_name)
             prompt += f'{i+1}. {classname[i]} mit der Eigenschaft x= {center_x[i]} y={center_y[i]} z= {center_z[i]}'
 

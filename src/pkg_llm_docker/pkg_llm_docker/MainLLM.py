@@ -32,15 +32,7 @@ class MainLLM:
     pass
    
   def startLLM(prompt,user_input):
-    #prompt = f'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin: 1. Box_Wischblatt mit der Eigenschaft x=543.5, y=608.5, z=0.0 2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt?: {AnswerFormat.schema_json()} :\n'
 
-      # Chat with Mistral by including the prompt
-      # response_JSON_Wischblatt_Assistant= ollama.chat(model='mistral', messages=[
-      #     {
-      #       'role': 'assistant',
-      #       'content': prompt,
-      #     },
-      #   ])
 
     start = time.time()
     
@@ -79,13 +71,6 @@ class MainLLM:
 
 
     print("----")
-
-    #content_str = dict_response['message']['content']
-    #print("Objekt", content_str)
-    #print("dict_response_object", PostProcessing.getWantedObject(dict_response))
-
-    #print("dict_response_object_pos", PostProcessing.getWantedPositon(dict_response)) 
-
 
     return dict_response
     
