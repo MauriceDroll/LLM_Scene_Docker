@@ -48,6 +48,18 @@ RUN git clone -b devel https://github.com/eshan-savla/object_detector_tensorflow
 RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
     rm -rf ./object_detector_tensorflow
     
+# Packing Planning Interfaces
+RUN git clone --branch visualization https://github.com/SchmittAndreas/aip_packing_algorithm.git
+RUN mv ./aip_packing_algorithm/aip_packing_planning_interfaces . && \
+    rm -rf ./aip_packing_algorithm
+
+# Grasp Planning Interfaces
+RUN git clone https://github.com/LeoSc4/aip_grasp_planning.git
+RUN mv ./aip_grasp_planning/aip_grasp_planning_interfaces . && \
+    rm -rf ./aip_grasp_planning
+    
+
+    
 COPY --chown=$USER:$USER --chmod=0755 ./startOllama.sh /home/$USER/ros_ws/startOllama.sh
 #RUN srv="ollama serve" && $srv& sleep 5 && ollama run mistral-nemo
 
