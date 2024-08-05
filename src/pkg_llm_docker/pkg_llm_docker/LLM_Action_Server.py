@@ -8,9 +8,13 @@ from PreProcessing import PreProcessing
 
 from MainLLM import MainLLM
 
-from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
+#from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
 
-from pkg_pack_item_server.pack_item_server import PackItemsService
+#from pkg_pack_item_server.pack_item_server import PackItemsService
+
+from pkg_website_llm.SelectedItemsToPack import SelectedItems
+from pkg_website_llm.PackItemServer import PackItemsService
+
 
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
@@ -43,7 +47,11 @@ class LLMActionServer(Node):
         goal_handle.publish_feedback(feedback_msg)
         
         # Create Prompt for the LLM (PreProcessing done) and send feedback after 50 %
-        prompt = PreProcessing.formatPrompt(self,"",user_input)
+        if "BEFEHL" in user_input:
+            prompt = PreProcessing.formatPrompt(self,"",user_input, "Generate")
+        else:
+            prompt = PreProcessing.formatPrompt(self,"",user_input, "Chat")
+        
         self.get_logger().info('Prompt: {0}'.format(prompt))
         
         feedback_msg.progress = 50
@@ -52,7 +60,7 @@ class LLMActionServer(Node):
         goal_handle.publish_feedback(feedback_msg)
         
         # Start the LLM
-        result_dict = MainLLM.startLLM(prompt)
+        result_dict = MainLLM.startLLM(prompt, user_input)
         goal_handle.publish_feedback(feedback_msg)
         goal_handle.succeed()
 
@@ -62,10 +70,12 @@ class LLMActionServer(Node):
         
         # Send the result to the website
         SelectedItems.clearPackList()
+        counter = 0
         for i in result_dict:
-            print("Result:", i)
+            counter += 1
+            print("Result:",counter, i)
             SelectedItems.appendPackList(i)
-        
+            print("SelectedItems:", SelectedItems.getPackList())
         
         self.get_logger().info('Action sollte fertig sein!')
      
@@ -74,12 +84,11 @@ class LLMActionServer(Node):
         #######################
 
         
-        #rclpy.init(args=args)
-        pack_server = PackItemsService()
-        self.get_logger().info('PackItemsService Node erstellt!')
-        #rclpy.create_node(pack_server)
-        #rclpy.spin_once(pack_server, timeout_sec=5.0)
-        pack_server.spinNode()
+
+        # pack_server = PackItemsService()
+        # self.get_logger().info('PackItemsService Node erstellt!')
+
+        # pack_server.spinNode()
 
         return result
 

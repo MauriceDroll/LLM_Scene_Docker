@@ -48,6 +48,10 @@ class PostProcessing:
             print("Fehler:",e)
             return "No content found"
     
+    
+    def formatToString(content):
+        return content['message']['content']
+        
     def getWantedObject(dict_response):
         return dict_response['answer']['object']
     

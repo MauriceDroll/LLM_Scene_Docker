@@ -5,8 +5,8 @@ import ollama
 
 class OllamaInteraction:
 
-    def getObjectFromScene(model, role, prompt):
-        return ollama.chat(model=model, messages=[
+    def getObjectFromScene(role, prompt):
+        return ollama.chat(model='mistral-nemo', messages=[
                 {
                     'role': role,
                     'content': prompt,

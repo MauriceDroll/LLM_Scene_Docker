@@ -17,6 +17,7 @@ class MinimalService(Node):
         WebsiteFeedbackData.setPackage(str(request.package))
         WebsiteFeedbackData.setGraspPose(str(request.grasp_pose))
         WebsiteFeedbackData.setPlacePose(str(request.place_pose))
+        self.get_logger().info('Set website feedback ')
         return 
 
 

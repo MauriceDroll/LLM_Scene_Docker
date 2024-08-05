@@ -8,6 +8,8 @@ from WebsiteFeedbackData import WebsiteFeedbackData
 from UserInputServiceSender import UserInputService 
 import UserInputServiceSender
 from ActionClientToPreProcessing import LLMActionClient
+from PackItemServer import PackItemsService
+from SelectedItemsToPack import SelectedItems
 
 import os
 
@@ -61,8 +63,13 @@ def button_click():
         rclpy.spin(server)
 
         result = server.get_result()
+        SelectedItems.appendPackList(result)
         print("Ergebnis:", result)
         
+        if "BEFEHL" in user_input:
+            result = "Diese Objekte werden gepackt: " + result
+        else :
+            result = "Diese Objekte wurden gefunden: " + result
 
     return jsonify({"message": "Button was clicked!", "received": result})
 
@@ -71,6 +78,13 @@ def button_approve():
 
     UserInput.setApproval(True)
     print("Meinung des Users:", UserInput.getApproval())
+    
+    rclpy.init()
+    pack_server = PackItemsService()
+    print("PackItemsService Node erstellt!")
+    #self.get_logger().info('PackItemsService Node erstellt!')
+    print("Packliste", SelectedItems.getPackList())
+    pack_server.spinNode()
 
 
     return jsonify({"message": "Approved by user!", "received": "Approval"})
@@ -92,7 +106,7 @@ def get_data():
     #     'place_pose': 'New Place Pose'
     # }
     WebsiteFeedbackData.setPackage("Box_Wischblatt, Keilriemen_groß, Keilriemen_klein")
-    WebsiteFeedbackData.setCylinderIds("1 2")
+    WebsiteFeedbackData.setCylinderIds("15464 2464")
     WebsiteFeedbackData.setGraspPose("Grasp Pose")
     WebsiteFeedbackData.setPlacePose("Place Pose")
 

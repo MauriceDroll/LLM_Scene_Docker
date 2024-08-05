@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Überprüfen, ob response_llm.received definiert und ein Array ist
                 if (response_llm.received && Array.isArray(response_llm.received)) {
-                    let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.join(', ');
+                    let formattedMessage = response_llm.received.join(', ');
                     addMessage(formattedMessage, 'bot');
                 }
                 else if (response_llm.received && !Array.isArray(response_llm.received)) {
-                    let formattedMessage = 'Diese Objekte werden gepackt: ' + response_llm.received.replace(/[\[\]\"',]/g, '')
+                    let formattedMessage = response_llm.received.replace(/[\[\]\"',]/g, '')
                     addMessage(formattedMessage, 'bot');
 
                 }
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Simulate bot response
         setTimeout(function () {
-            addMessage('Auswahl wurde bestätigt!', 'bot');
+            addMessage('Auswahl wurde bestätigt und wird bearbeitet!', 'bot');
 
         }, 1000);
     });
