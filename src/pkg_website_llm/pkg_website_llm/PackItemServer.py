@@ -36,8 +36,8 @@ class PackItemsService(Node):
     def spinNode(self):
 
         self.get_logger().info('Bin in der Hilfsmethode!')
-        rclpy.spin_once(self, timeout_sec=15.0)
-
+        #rclpy.spin_once(self, timeout_sec=15.0)
+        rclpy.spin(self)
         self.get_logger().info('FERTIG mit Hilfsmethode!')
     
 

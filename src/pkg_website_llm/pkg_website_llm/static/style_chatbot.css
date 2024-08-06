@@ -106,6 +106,13 @@ body {
     color: #fff;
 }
 
+.sucess-message {
+    background-color: #2ab425;
+    align-self: flex-start;
+    color: #fff;
+}
+
+
 .user-message {
     background-color: #3884C7;
     color: #fff;

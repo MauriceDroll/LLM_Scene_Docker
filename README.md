@@ -5,7 +5,24 @@ This container is running as a ROS2 Node and contains a Ollama installation with
 It also contains the website which is used to get the user input.
 
 
-## Usage
+## How to run this container
+
+## Start Website and LLM via Launchfile
+
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_services.py
+
+
+## Start only Website
+
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_Website.py
+
+## Start only LLM
+
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_LLM.py
+
+
+
+
 
 Once the container is started, the entry point is directly on the cli of ollama.
 

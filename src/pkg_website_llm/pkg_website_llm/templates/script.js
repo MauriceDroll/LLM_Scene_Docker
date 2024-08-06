@@ -80,6 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
             addMessage('Auswahl wurde bestätigt und wird bearbeitet!', 'bot');
 
         }, 1000);
+
+        setTimeout(function () {
+            addMessage('Auswahl zu Packalgorithmus übermittelt!', 'success');
+
+        }, 5000);
     });
 });
 
@@ -160,6 +165,7 @@ function submitFormOnEnter(event) {
 function addMessage(text, sender) {
     var message = document.createElement('div');
     message.className = 'message ' + (sender === 'user' ? 'user-message' : 'bot-message');
+    message.className = 'message ' + (sender === 'success' ? 'sucess-message' : 'bot-message');
     message.textContent = text;
 
     var chatBox = document.getElementById('chat-box');

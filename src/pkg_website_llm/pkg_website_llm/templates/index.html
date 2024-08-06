@@ -22,12 +22,13 @@
     <div class="main">
         <div class="picture-container" style="color: white">
             <h2 style="color: white" >Image of Box Content</h2>
-            <img id="image" src="./Hintergrund.png" alt="ROS2 Image" width="480" height="480">
+            <!-- <img id="image" src="Hintergrund.png" alt="Image of the box" width="480" height="480"> -->
+            <img id="image" src="{{ url_for('static', filename='Hintergrund.png') }}" alt="Image of the box" width="480" height="480">
 
         </div>
         <div class="picture-container" style="color: white">
             <h2 style="color: white" >Pack Planning</h2>
-            <img id="image" src="./Platzhalter.png" alt="ROS2 Image" width="480" height="480">
+            <img id="image" src="Platzhalter.png" alt="placeholder" width="480" height="480">
 
         </div>
 
@@ -71,7 +72,7 @@
     </div>
   </section>
   
-<body style="background-image: url('/static/images/Hintergrund.png');">
+<body style="background-image: url('./Hintergrund.png');">
 
 
 
