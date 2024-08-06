@@ -4,9 +4,9 @@ import rclpy
 from rclpy.action import ActionServer
 from rclpy.node import Node
 
-from PreProcessing import PreProcessing
+from .PreProcessing import PreProcessing
 
-from MainLLM import MainLLM
+from .MainLLM import MainLLM
 
 #from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
 
@@ -87,12 +87,13 @@ def main(args=None):
     rclpy.init(args=args)
 
     action_server = LLMActionServer()
-    #rclpy.spin(action_server)
+    action_server.get_logger().info('Action Server erstellt')
+    rclpy.spin(action_server)
     
-    executor = MultiThreadedExecutor()
+    #executor = MultiThreadedExecutor()
     action_server.get_logger().info('executor erstellt')
 
-    rclpy.spin(action_server, executor=executor)
+    #rclpy.spin(action_server, executor=executor)
     action_server.get_logger().info('Spin beginnt')
 
     action_server.destroy()

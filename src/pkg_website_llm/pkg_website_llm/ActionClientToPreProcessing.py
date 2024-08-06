@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.action import ActionClient
 from rclpy.node import Node
-from UserInput import UserInput
+from .UserInput import UserInput
 
 from llm_action_interfaces.action import LLM
 

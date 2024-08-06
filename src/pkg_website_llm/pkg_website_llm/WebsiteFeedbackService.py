@@ -2,7 +2,7 @@ from llm_interfaces.srv import WebsiteFeedback
 
 import rclpy
 from rclpy.node import Node
-from WebsiteFeedbackData import WebsiteFeedbackData
+from .WebsiteFeedbackData import WebsiteFeedbackData
 
 
 class MinimalService(Node):

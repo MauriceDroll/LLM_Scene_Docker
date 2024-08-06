@@ -58,6 +58,9 @@ Server:
 4. Navigate to the folder: cd /src/pkg_llm_docker/pkg_llm_docker
 5. python3 LLM_Action_Server.py 
 
+### How to send a test request to the LLM
+ros2 action send_goal /llm_action_server llm_action_interfaces/action/LLM "{userinput: 'BEFEHL: Box_Wischblatt' }"
+
 
 
 ## How to mock (bypass the LLM) 

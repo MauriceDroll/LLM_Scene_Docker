@@ -3,30 +3,42 @@ from flask import Flask, render_template, request, jsonify
 
 import rclpy
 from rclpy.node import Node
-from UserInput import UserInput
-from WebsiteFeedbackData import WebsiteFeedbackData
-from UserInputServiceSender import UserInputService 
-import UserInputServiceSender
-from ActionClientToPreProcessing import LLMActionClient
-from PackItemServer import PackItemsService
-from SelectedItemsToPack import SelectedItems
+from .UserInput import UserInput
+from .WebsiteFeedbackData import WebsiteFeedbackData
+from .UserInputServiceSender import UserInputService 
+from .ActionClientToPreProcessing import LLMActionClient
+from .PackItemServer import PackItemsService
+from .SelectedItemsToPack import SelectedItems
 
 import os
-
+import glob
 
 # Assuming this script is located in ros_ws/src/pkg_website_llm/pkg_website_llm/website_llm.py
 # Get the absolute path to the directory containing this script
-#current_dir = os.path.abspath(os.path.dirname(__file__))
+current_dir = os.path.abspath(os.path.dirname(__file__))
+print("Vor Slash")
+print(current_dir)
 
 # Set the templates folder to the 'templates' directory relative to the current directory
-#template_dir = os.path.join(current_dir, 'templates')
+template_dir = os.path.join(current_dir, 'templates')
+
+#static_dir = os.path.join(current_dir, 'static')
+
+static_dir = '/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/static'
 
 # Create the Flask app with the correct template folder
-app = Flask(__name__, template_folder='/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates', static_url_path='/static')
+
+#app = Flask(__name__, template_folder='/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates', static_url_path='/static')
+app = Flask(__name__, template_folder='/home/robot/ros_ws/src/pkg_website_llm/pkg_website_llm/templates', static_folder=static_dir, static_url_path='')
+
 
 
 @app.route('/')
 def index():
+    for root, dirs, files in os.walk(static_dir):
+        for file in files:
+            print(os.path.join(root, file))
+
     return render_template('index.html')
 
 @app.route('/button_click', methods=['POST'])
@@ -58,6 +70,7 @@ def button_click():
         server = LLMActionClient()
         future = server.send_goal(user_input)
         #print("Datenobjekt Typ Future", type(future))
+        print("Input:", user_input)
 
 
         rclpy.spin(server)

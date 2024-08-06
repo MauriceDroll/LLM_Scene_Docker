@@ -2,8 +2,8 @@ import rclpy
 import time
 from rclpy.node import Node
 from llm_interfaces.srv import SceneInterpretation
-from SelectedItemsToPack import SelectedItems
-from UserInput import UserInput
+from .SelectedItemsToPack import SelectedItems
+from .UserInput import UserInput
 
 class PackItemsService(Node):
 

@@ -2,9 +2,9 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from object_detector_tensorflow_interfaces.msg import Detections
-from Detection import Detection
-from MainLLM import MainLLM
-from PreProcessing import PreProcessing
+from .Detection import Detection
+from .MainLLM import MainLLM
+from .PreProcessing import PreProcessing
 
 
 class DetectionSubscriber(Node):

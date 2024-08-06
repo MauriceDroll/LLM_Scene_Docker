@@ -1,8 +1,8 @@
 import ollama
 import time
 import re
-from PostProcessing import PostProcessing
-from OllamaInteraction import OllamaInteraction
+from .PostProcessing import PostProcessing
+from .OllamaInteraction import OllamaInteraction
 # relevant für die String to Dict Konvertierung
 import ast
 

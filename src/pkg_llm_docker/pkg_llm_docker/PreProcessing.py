@@ -1,4 +1,4 @@
-from MainLLM import AnswerFormat
+from .MainLLM import AnswerFormat
 #import roslib
 #roslib.load_manifest('pkg_website_llm')
 #from pkg_website_llm.UserInput import UserInput
