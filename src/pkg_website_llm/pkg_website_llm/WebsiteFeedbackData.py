@@ -4,52 +4,45 @@ import cv2
 
 class WebsiteFeedbackData:
     # Data declaration
-    cylinder_ids = ""
-    package = ""
-    grasp_pose = ""
-    place_pose = ""
-    file_path_image = "/static/images/PackPlan.png"
+    _cylinder_ids = ""
+    _package = ""
+    _grasp_pose = ""
+    _place_pose = ""
+    _file_path_image = "/static/images/PackPlan.png"
     
-    # Getter and setter methods: Cylinder IDs
-    def getCylinderIds():
-        return WebsiteFeedbackData.cylinder_ids
     
-    def setCylinderIds(cylinder_ids):
-        WebsiteFeedbackData.cylinder_ids = cylinder_ids
-        
-        
-    # Getter and setter methods: Package
-    def getPackage():
-        return WebsiteFeedbackData.package
+    # Cylinder IDs
+    @classmethod
+    def getCylinderIds(cls):
+        return cls._cylinder_ids
     
-    def setPackage(package): 
-        WebsiteFeedbackData.package = package
+    @classmethod
+    def setCylinderIds(cls, cylinder_ids):
+        cls._cylinder_ids = cylinder_ids
         
+    # Package
+    @classmethod
+    def getPackage(cls):
+        return cls._package
     
-    # Getter and setter methods: Grasp Pose
-    def getGraspPose():
-        return WebsiteFeedbackData.grasp_pose
+    @classmethod
+    def setPackage(cls, package): 
+        cls._package = package
+        
+    # file path image
     
-    def setGraspPose(grasp_pose):
-        WebsiteFeedbackData.grasp_pose = grasp_pose
-        
-        
-    # Getter and setter methods: Place Pose
-    def getPlacePose():
-        return WebsiteFeedbackData.place_pose
-    
-    def setPlacePose(place_pose):
-        WebsiteFeedbackData.place_pose = place_pose
-        
-    # Get and Set the image 
-    def getImagePath():
-        if os.path.isfile(WebsiteFeedbackData.file_path_image):
-            return WebsiteFeedbackData.file_path_image
+    @classmethod
+    def getImagePath(cls):
+        if os.path.isfile(cls._file_path_image):
+            return cls._file_path_image
         else:
             return "/static/images/Platzhalter.png"
         
-    def setImagePath(image_array):
+    @classmethod
+    def setImagePath(cls, image_array):
         bridge = CvBridge()
-        picture = bridge.imgmsg_to_cv2(image_array, "passthrough")  # Konvertiere die ROS 2 Image-Nachricht zurück in ein OpenCV-Bild
-        cv2.imwrite(WebsiteFeedbackData.file_path_image, picture)
-        
+        # Konvertiere die ROS 2 Image-Nachricht zurück in ein OpenCV-Bild
+        picture = bridge.imgmsg_to_cv2(image_array, "passthrough")  
+        cv2.imwrite(cls._file_path_image, picture)
+    
+    

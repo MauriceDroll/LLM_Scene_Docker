@@ -27,7 +27,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'website_llm = pkg_website_llm.website_llm:main'            
+            'website_llm = pkg_website_llm.website_llm:main',
+            'feedback_website_llm = pkg_website_llm.WebsiteFeedbackService:main'              
         ],
     },
 )

@@ -44,8 +44,13 @@ class PreProcessing(Node):
         elif userInput !="":
             #prompt += f'{userInput}: {AnswerFormat.schema_json()} :\n'
             prompt += f' Answer the name and position in a short json object. Wo befindet sich {userInput}?\n'
+        
+        # Wenn der Chatmodus Question ist, dann wird der User Input als Frage interpretiert
+        elif chatmodus == "Question":
+            prompt = userInput
+        # Wenn der Chatmodus Generate ist, dann wird der User Input als Frage interpretiert
         else:
-            prompt += f'Wo befindet sich die Box mit dem Wischblatt? Answer only with the name and position in a short json object :\n'
+            prompt += f'Bitte beschreibe dem User den Sachverhalt und bitte ihn dir eine Frage zu stellen.:\n'
         
         
         #print("----")

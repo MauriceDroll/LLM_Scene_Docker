@@ -11,14 +11,13 @@ class MinimalService(Node):
         super().__init__('website_feedback_server')
         self.srv = self.create_service(WebsiteFeedback, 'get_website_feedback', self.save_data_for_website)
 
-    def save_data_for_website(self, request, response):
+    def save_data_for_website(self, request):
         self.get_logger().info('Incoming request received')
+        
         WebsiteFeedbackData.setCylinderIds(str(request.cylinder_ids))
         WebsiteFeedbackData.setPackage(str(request.package))
-        WebsiteFeedbackData.setGraspPose(str(request.grasp_pose))
-        WebsiteFeedbackData.setPlacePose(str(request.place_pose))
         self.get_logger().info('Set website feedback ')
-        return 
+         
 
 
 def main():

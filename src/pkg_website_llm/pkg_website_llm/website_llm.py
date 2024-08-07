@@ -120,16 +120,13 @@ def get_data():
     # }
     WebsiteFeedbackData.setPackage("Box_Wischblatt, Keilriemen_groß, Keilriemen_klein")
     WebsiteFeedbackData.setCylinderIds("15464 2464")
-    WebsiteFeedbackData.setGraspPose("Grasp Pose")
-    WebsiteFeedbackData.setPlacePose("Place Pose")
+
 
 
     
     data = {
         'package_content': WebsiteFeedbackData.getPackage(),
         'cylinder_ids': WebsiteFeedbackData.getCylinderIds(),
-        'grasp_pose': WebsiteFeedbackData.getGraspPose(),
-        'place_pose': WebsiteFeedbackData.getPlacePose(),
         'picture': WebsiteFeedbackData.getImagePath(),
     }
     #print("DATEN WURDEN Abgerufen")
