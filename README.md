@@ -9,7 +9,7 @@ It also contains the website which is used to get the user input.
 
 ## Start Website and LLM via Launchfile
 
-cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_services.py
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_WebsiteAndLLM.py
 
 
 ## Start only Website
@@ -21,8 +21,8 @@ cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_websi
 cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_LLM.py
 
 
-
-
+## Start only UserInputService
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_FeedbackWebsite.py
 
 Once the container is started, the entry point is directly on the cli of ollama.
 

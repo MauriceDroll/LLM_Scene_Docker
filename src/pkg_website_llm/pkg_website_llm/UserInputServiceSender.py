@@ -17,13 +17,13 @@ class UserInputService(Node):
     def userinput_callback(self, request, response):
         
         response.user_input = UserInput.getUserInput()
-        #print(UserInput.userInput_str)
-        print("Service wurde aufgerufen")
+        self.get_logger().info('Incoming request, current Input: %s' % UserInput.getUserInput())
+
         return response
     
     def shutdown_node(self):
         rclpy.shutdown()
-        print("Service zerstört")
+        self.get_logger().info('Service destroyed: %s' % UserInput.getUserInput())
         UserInput.UserInput_str = 'No Input'
 
 
@@ -31,6 +31,7 @@ def main(args=None):
     rclpy.init(args=args)
 
     service = UserInputService()
+    service.get_logger().info('Service was started and spins now')
     rclpy.spin(service)
     #print("Service erzeugt")
 
