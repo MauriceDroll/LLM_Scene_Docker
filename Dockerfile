@@ -44,10 +44,13 @@ RUN mkdir -p /home/$USER/ros_ws/src
 WORKDIR /home/$USER/ros_ws
 RUN colcon build --symlink-install
 
-RUN git clone -b devel https://github.com/eshan-savla/object_detector_tensorflow.git
+
+ARG CACHE_BUST
+
+RUN git clone -b humble https://github.com/eshan-savla/object_detector_tensorflow.git
 RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
-    rm -rf ./object_detector_tensorflow
-    
+rm -rf ./object_detector_tensorflow
+
 # Packing Planning Interfaces
 RUN git clone --branch visualization https://github.com/SchmittAndreas/aip_packing_algorithm.git
 RUN mv ./aip_packing_algorithm/aip_packing_planning_interfaces . && \
