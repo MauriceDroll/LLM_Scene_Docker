@@ -28,7 +28,8 @@ setup(
     entry_points={
         'console_scripts': [
             'website_llm = pkg_website_llm.website_llm:main',
-            'feedback_website_llm = pkg_website_llm.WebsiteFeedbackService:main'              
+            'feedback_website_llm = pkg_website_llm.WebsiteFeedbackService:main',   
+            'user_input_service = pkg_website_llm.UserInputServiceSender:main'           
         ],
     },
 )

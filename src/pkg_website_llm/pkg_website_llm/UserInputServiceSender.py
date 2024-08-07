@@ -30,9 +30,11 @@ class UserInputService(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    print("Service erzeugt")
+    service = UserInputService()
+    rclpy.spin(service)
+    #print("Service erzeugt")
 
-    rclpy.spin('user_input')
+    #rclpy.spin('user_input')
     #rclpy.spin(self.srv)
 
     
