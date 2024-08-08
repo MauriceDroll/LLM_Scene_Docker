@@ -50,11 +50,11 @@ def button_click():
     user_input = data.get('user_input', '')
     print(f"Anfrage (von webseite_llm): {user_input}")
     
-    UserInput.setUserInput(user_input)
+    #UserInput.setUserInput(user_input)
     parameter_setter = ParamGetter()
 
     # String wird in der Website gespeichert!
-    mod_user_input = "'" + user_input  + "'"
+    mod_user_input = "'" + user_input.replace("BEFEHL:", "").replace("Frage:", "")  + "'"
     parameter_setter.set_ros2_param('user_input',mod_user_input)
     
     if not rclpy.ok():

@@ -31,7 +31,7 @@ setup(
             'feedback_website_llm = pkg_website_llm.WebsiteFeedbackService:main',   
             'user_input_service = pkg_website_llm.UserInputServiceSender:main',
             'param_setter = pkg_website_llm.ParamSetter:main',
-            'param_getter = pkg_website_llm.ParamGetter:main'        
+            'param_getter = pkg_website_llm.ParamGetter:main',
         ],
     },
 )
