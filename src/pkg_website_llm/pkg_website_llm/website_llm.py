@@ -76,7 +76,8 @@ def button_click():
         rclpy.spin(server)
 
         result = server.get_result()
-        SelectedItems.appendPackList(result)
+        # SelectedItems.appendPackList(result)
+        SelectedItems.setPackList(result)
         print("Ergebnis:", result)
         
         if "BEFEHL" in user_input:

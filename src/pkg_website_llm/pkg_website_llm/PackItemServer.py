@@ -18,7 +18,14 @@ class PackItemsService(Node):
         while (True):
             if (SelectedItems.getPackList() != [] and UserInput.getApproval() == True):
                 self.get_logger().info('Data available yet.')
-                response.objects_to_pick = SelectedItems.getPackList()
+                # response.objects_to_pick = SelectedItems.getPackList()
+                # response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein','Box_Messwertgeber']
+                response.objects_to_pick = ['Box_Wischblatt']
+                
+                self.get_logger().info("RESPONSE objects_to_pick: {}".format(response.objects_to_pick))
+                # response.objects_to_pick = SelectedItems.getStandardConfig()                
+                
+                self.get_logger().info('Packlist:'.format(SelectedItems.getPackList()))
                 #response.objects_to_pick = ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
                 return response
             else:

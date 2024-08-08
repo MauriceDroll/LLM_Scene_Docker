@@ -14,11 +14,17 @@ class MinimalService(Node):
 
     def save_data_for_website(self, request,response):
         self.get_logger().info('Incoming request received')
+                
+        self.get_logger().info(f'Cylidner IDs: {request.cylinder_ids}')       
         
-        self.get_logger().info('Cylinder:'.format(str(request.cylinder_ids)))
-        self.get_logger().info('Package:'.format(str(request.package)))
-        WebsiteFeedbackData.setCylinderIds(str(request.cylinder_ids))
+        self.get_logger().info(f'Package: {request.package}')
+        
+        WebsiteFeedbackData.setCylinderIds(str(request.cylinder_ids.cylinder_ids))       
         WebsiteFeedbackData.setPackage(str(request.package))
+        
+        self.get_logger().info(f'getCylinderIDs: {WebsiteFeedbackData.getCylinderIds()}')
+        self.get_logger().info(f'getPackage: {WebsiteFeedbackData.getPackage()}')
+        
         self.get_logger().info('Set website feedback ')
          
         return response
