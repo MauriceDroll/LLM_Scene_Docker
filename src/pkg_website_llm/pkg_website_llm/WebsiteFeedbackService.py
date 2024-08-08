@@ -4,6 +4,8 @@ import rclpy
 from rclpy.node import Node
 from .WebsiteFeedbackData import WebsiteFeedbackData
 
+from .ParamGetter import ParamGetter
+
 
 class MinimalService(Node):
 
@@ -19,11 +21,15 @@ class MinimalService(Node):
         
         self.get_logger().info(f'Package: {request.package}')
         
-        WebsiteFeedbackData.setCylinderIds(str(request.cylinder_ids.cylinder_ids))       
-        WebsiteFeedbackData.setPackage(str(request.package))
+        #WebsiteFeedbackData.setCylinderIds(str(request.cylinder_ids.cylinder_ids))       
+        #WebsiteFeedbackData.setPackage(str(request.package))
+        param = ParamGetter()
+        param.set_ros2_param('cylinder_Ids', str(request.cylinder_ids.cylinder_ids))
+        param.set_ros2_param('package', str(request.package))
         
-        self.get_logger().info(f'getCylinderIDs: {WebsiteFeedbackData.getCylinderIds()}')
-        self.get_logger().info(f'getPackage: {WebsiteFeedbackData.getPackage()}')
+        
+        #self.get_logger().info(f'getCylinderIDs: {WebsiteFeedbackData.getCylinderIds()}')
+        #self.get_logger().info(f'getPackage: {WebsiteFeedbackData.getPackage()}')
         
         self.get_logger().info('Set website feedback ')
          

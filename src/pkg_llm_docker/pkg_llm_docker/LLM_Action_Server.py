@@ -8,9 +8,6 @@ from .PreProcessing import PreProcessing
 
 from .MainLLM import MainLLM
 
-#from pkg_pack_item_server.SelectedItemsToPack import SelectedItems
-
-#from pkg_pack_item_server.pack_item_server import PackItemsService
 
 from pkg_website_llm.SelectedItemsToPack import SelectedItems
 from pkg_website_llm.PackItemServer import PackItemsService
@@ -19,8 +16,10 @@ from pkg_website_llm.PackItemServer import PackItemsService
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 
-#from pkg_pack_item_server import SelectedItems
+
 from llm_action_interfaces.action import LLM
+
+from pkg_website_llm.ParamGetter import ParamGetter
 
 
 class LLMActionServer(Node):
@@ -35,6 +34,8 @@ class LLMActionServer(Node):
         self.get_logger().info('Action Server is ready')
 
     def execute_callback(self, goal_handle):
+        # Define instance of PreProcessing
+        preprocessing_unit = PreProcessing()
         
         # Receive user input from the website
         user_input = goal_handle.request.userinput
@@ -46,11 +47,14 @@ class LLMActionServer(Node):
         feedback_msg.progress = 0
         goal_handle.publish_feedback(feedback_msg)
         
+        # Receive the detections from the DetectionSubscriber
+        preprocessing_unit.receiveDetections()
+        
         # Create Prompt for the LLM (PreProcessing done) and send feedback after 50 %
         if "BEFEHL" in user_input:
-            prompt = PreProcessing.formatPrompt(self,"",user_input, "Generate")
+            prompt = preprocessing_unit.formatPrompt("",user_input, "Generate")
         else:
-            prompt = PreProcessing.formatPrompt(self,"",user_input, "Chat")
+            prompt = preprocessing_unit.formatPrompt("",user_input, "Chat")
         
         self.get_logger().info('Prompt: {0}'.format(prompt))
         
@@ -68,16 +72,23 @@ class LLMActionServer(Node):
         result.llmoutput = str(result_dict)
         
         
-        # Send the result to the website
-        SelectedItems.clearPackList()
-        counter = 0
-        for i in result_dict:
-            counter += 1
-            print("Result:",counter, i)
-            SelectedItems.appendPackList(i)
-            print("SelectedItems:", SelectedItems.getPackList())
+        # # Send the result to the website
+        # SelectedItems.clearPackList()
+        # counter = 0
+        # for i in result_dict:
+        #     counter += 1
+        #     print("Result:",counter, i)
+        #     SelectedItems.appendPackList(i)
+        #     print("SelectedItems:", SelectedItems.getPackList())
         
-        self.get_logger().info('Action beendet!')
+        try:
+            param = ParamGetter()
+            mod_user_input = "'" + str(result_dict)  + "'"
+            param.set_ros2_param('pack_list', mod_user_input)
+        except Exception as e:
+            self.get_logger().error(f'Saving parameter pack_list failed {e}')
+        
+        self.get_logger().info('LLM was executed successfully!')
      
         return result
 

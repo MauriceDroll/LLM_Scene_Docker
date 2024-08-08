@@ -4,6 +4,8 @@ from rclpy.node import Node
 from .UserInput import UserInput
 from threading import Timer
 
+from .ParamGetter import ParamGetter
+
 
 class UserInputService(Node):
 
@@ -16,8 +18,19 @@ class UserInputService(Node):
 
     def userinput_callback(self, request, response):
         
-        response.user_input = UserInput.getUserInput()
-        self.get_logger().info('Incoming request, current Input: %s' % UserInput.getUserInput())
+        param = ParamGetter()
+        while True:
+            user_input = param.get_ros2_param("user_input")
+            user_input = user_input.replace("String value is:", "")
+            user_input = user_input.strip()
+            
+            if user_input != "" and user_input != 'No Input':
+                response.user_input = user_input
+                self.get_logger().info('Outgoing User Input %s' % user_input)
+                break
+            else:
+                time.sleep(5)
+                self.get_logger().info('NO User Input available yet. Waiting for data...')
 
         return response
     

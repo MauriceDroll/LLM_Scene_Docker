@@ -3,15 +3,22 @@ from .MainLLM import AnswerFormat
 #roslib.load_manifest('pkg_website_llm')
 #from pkg_website_llm.UserInput import UserInput
 #import fakeOdtf
-from rclpy.node import Node
-import ast
-import yaml
-import os
+
+# from rclpy.node import Node
+# import ast
+# import yaml
+# import os
+# import rclpy
+
+from .shared import Node, ast, yaml, os, rclpy
+
+from .DetectionSubscriber import DetectionSubscriber
 
 class PreProcessing(Node):
     
     
     def __init__(self):
+        self.detections = []
         pass
     
     def loadAdditionalInformationYAML(self, class_name):
@@ -53,11 +60,29 @@ class PreProcessing(Node):
             height_mass.append(obj_height_mass)
 
         return object_mass,length_mass,width_mass,height_mass
+
+    
+    def receiveDetections(self):
+        # Call the DetectionSubscriber Node
+        #rclpy.init(args=None)
+
+        #my_subscriber = DetectionSubscriber()
+
+        #rclpy.spin(my_subscriber)
+        
+        #my_subscriber.destroy_node()
+        #rclpy.shutdown()
+        #self.detections = my_subscriber.detections
+        pass
     
     # Abfrage 
     def formatPrompt(self,sceneDescription,userInput, chatmodus):
+        
+        # Receive the detections from the DetectionSubscriber
+        #self.receiveDetections()
+        
         #prompt = f'Es liegt die folgende Szene vor: Wir haben eine Box mit Gegenständen darin: 1. {sceneDescription[0].class_name} mit der Eigenschaft x= {sceneDescription[0].center.x} y={sceneDescription[0].center.y} z= {sceneDescription[0].center.z}  2. Keilriemen_gross mit der Eigenschaft x=629.5, y=405.5, z=0.0 3. Box_Messwertgeber mit der Eigenschaft x=800.0, y=524.0, z=0.0. Wo befindet sich der das Wischblatt?: {AnswerFormat.schema_json()} :\n'
-        prompt = 'Es folgt eine Scenenbeschreibung.'
+        prompt = 'Detektierte Objekte: \n'
         
         
         classname = ["Box_Wischblatt", "Keilriemen_gross", "Box_Messwertgeber", "Keilriemen_klein"]
@@ -71,7 +96,7 @@ class PreProcessing(Node):
         #for i in range(0, len(sceneDescription)):
         for i in range(0,4):
             #self.get_logger().info(sceneDescription[i].class_name)
-            prompt += f'{i+1}. {classname[i]} mit der Eigenschaft x= {center_x[i]} y={center_y[i]} z= {center_z[i]} Gewicht: {object_mass[i]} kg Länge: {length_mass[i]} mm Breite: {width_mass[i]} mm Höhe: {height_mass[i]} mm \n'
+            prompt += f'{i+1}. {classname[i]}: Position x= {center_x[i]} y={center_y[i]} z= {center_z[i]} Gewicht: {object_mass[i]} kg Länge: {length_mass[i]} mm Breite: {width_mass[i]} mm Höhe: {height_mass[i]} mm \n'
 
             #prompt += f'{i+1}. {sceneDescription[i].class_name} mit der Eigenschaft x= {sceneDescription[i].center.x} y={sceneDescription[i].center.y} z= {sceneDescription[i].center.z}'
 

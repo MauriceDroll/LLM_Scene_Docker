@@ -10,6 +10,8 @@ from .ActionClientToPreProcessing import LLMActionClient
 from .PackItemServer import PackItemsService
 from .SelectedItemsToPack import SelectedItems
 
+from .ParamGetter import ParamGetter
+
 import os
 import glob
 
@@ -49,6 +51,11 @@ def button_click():
     print(f"Anfrage (von webseite_llm): {user_input}")
     
     UserInput.setUserInput(user_input)
+    parameter_setter = ParamGetter()
+
+    # String wird in der Website gespeichert!
+    mod_user_input = "'" + user_input  + "'"
+    parameter_setter.set_ros2_param('user_input',mod_user_input)
     
     if not rclpy.ok():
         rclpy.init(args=None)
@@ -96,8 +103,10 @@ def button_approve():
     rclpy.init()
     pack_server = PackItemsService()
     print("PackItemsService Node erstellt!")
+    parameter_setter = ParamGetter()
+    parameter_setter.set_ros2_param('user_approval',"True")
     #self.get_logger().info('PackItemsService Node erstellt!')
-    print("Packliste", SelectedItems.getPackList())
+    #print("Packliste", SelectedItems.getPackList())
     pack_server.spinNode()
 
 
@@ -108,6 +117,9 @@ def button_disapprove():
 
     UserInput.setApproval(False)
     print("Meinung des Users:", UserInput.getApproval())
+    parameter_setter = ParamGetter()
+    parameter_setter.set_ros2_param('user_approval',bool("False"))
+
 
     return jsonify({"message": "Disapproved by user", "received": "Disapproval"})
 

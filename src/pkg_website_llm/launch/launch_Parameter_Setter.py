@@ -12,13 +12,6 @@ def generate_launch_description():
             output='screen',
             name='Parameter_Setter'
         ),
-        Node(
-            package='pkg_website_llm',
-            namespace='LLM',
-            executable='param_getter',
-            output='screen',
-            name='Parameter_Getter'
-        ),
              
 
     ])
