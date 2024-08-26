@@ -45,11 +45,12 @@ WORKDIR /home/$USER/ros_ws
 RUN colcon build --symlink-install
 
 RUN git clone -b humble https://github.com/eshan-savla/object_detector_tensorflow.git
+
 RUN mv ./object_detector_tensorflow/ros/object_detector_tensorflow_interfaces . && \
     rm -rf ./object_detector_tensorflow
     
 COPY --chown=$USER:$USER --chmod=0755 ./startOllama.sh /home/$USER/ros_ws/startOllama.sh
-RUN srv="ollama serve" && $srv& sleep 5 && ollama pull mistral
+# RUN srv="ollama serve" && $srv& sleep 5 && ollama pull mistral
 
 CMD ["/bin/bash"]
 
